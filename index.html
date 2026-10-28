@@ -11,12 +11,17 @@
   gtag('js', new Date());
 
   gtag('config', 'G-051Q6PHL1K');
-  </script>
-  <title>Tata 1mg | Online Pharmacy, Lab Tests & Smart CarePath AI (V2.0)</title>
+  </script>	
+  <title>Tata 1mg | Online Pharmacy, Lab Tests & Smart CarePath AI (V3.0)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- PDF.js CDN for in-browser PDF parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
     tailwind.config = {
       theme: {
         extend: {
@@ -54,6 +59,7 @@
     .step-active { border-color: #00a699; background-color: #e6f7f5; color: #00847a; font-weight: 700; }
     .step-done { border-color: #10b981; background-color: #ecfdf5; color: #047857; }
     .step-pending { border-color: #e2e8f0; background-color: #f8fafc; color: #64748b; }
+    .dropzone-active { border-color: #00a699 !important; background-color: #e6f7f5 !important; transform: scale(1.01); }
   </style>
 </head>
 <body class="text-slate-800 antialiased pb-16">
@@ -68,7 +74,7 @@
       <div class="flex items-center space-x-3">
         <a href="#" onclick="switchRoleView('storefront'); return false;" class="flex items-center space-x-1.5">
           <span class="text-lg font-black tracking-tight text-white">TATA <span class="text-tata-coral">1mg</span></span>
-          <span class="bg-teal-500/20 text-teal-300 border border-teal-400/40 text-[10px] font-bold px-2 py-0.5 rounded-full ml-1">CarePath V2.0</span>
+          <span class="bg-teal-500/20 text-teal-300 border border-teal-400/40 text-[10px] font-bold px-2 py-0.5 rounded-full ml-1">CarePath V3.0</span>
         </a>
       </div>
 
@@ -106,7 +112,7 @@
   <!-- ========================================================================= -->
   <div id="view_storefront" class="space-y-6">
 
-    <!-- CLEAN STOREFRONT NAVIGATION (No margin badges, no legal clutter in header) -->
+    <!-- CLEAN STOREFRONT NAVIGATION -->
     <div class="bg-white border-b border-slate-200 sticky top-12 z-40 shadow-xs">
       <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
         
@@ -117,7 +123,7 @@
             Lab Tests <span class="bg-emerald-100 text-emerald-800 text-[9px] px-1.5 py-0.5 rounded font-bold">NABL</span>
           </button>
           <button onclick="scrollToAssistant()" class="text-teal-700 hover:text-teal-600 transition flex items-center gap-1 bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200">
-            <i class="fa-solid fa-wand-magic-sparkles text-teal-600"></i> CarePath AI <span class="bg-teal-600 text-white text-[9px] px-1 rounded">NEW</span>
+            <i class="fa-solid fa-wand-magic-sparkles text-teal-600"></i> CarePath AI <span class="bg-teal-600 text-white text-[9px] px-1 rounded">V3.0</span>
           </button>
           <a href="#carePlanSection" class="text-slate-600 hover:text-tata-coral transition">Care Plan</a>
         </nav>
@@ -145,20 +151,20 @@
     <!-- MAIN STOREFRONT CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 space-y-8 pt-2">
 
-      <!-- PROMOTIONAL HERO BANNER (Consumer discounts only, clean consumer visual) -->
+      <!-- PROMOTIONAL HERO BANNER -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         
         <!-- Left 8 Cols: Banner Carousel -->
         <div class="lg:col-span-8 bg-gradient-to-r from-slate-900 via-slate-800 to-teal-950 text-white rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col justify-between relative overflow-hidden">
           <div class="relative z-10">
             <div class="inline-flex items-center gap-1.5 bg-teal-500/20 border border-teal-400/40 text-teal-300 text-xs font-bold px-3 py-1 rounded-full mb-3">
-              <i class="fa-solid fa-sparkles"></i> NEW TATA 1MG CAREPATH AI
+              <i class="fa-solid fa-sparkles"></i> NEW TATA 1MG CAREPATH AI V3.0
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold leading-tight mb-2">
               Instant Plain-English Lab Translation &amp; Express Pharmacist Verification
             </h1>
             <p class="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
-              Upload your doctor's prescription or diagnostic report. Our smart clinical engine interprets your biomarkers in plain English and pairs your verified prescription with a tailored care plan in minutes.
+              Upload your real doctor prescription or diagnostic lab report PDF. Our clinical engine parses your abnormal biomarkers in plain English, routes the prescription to our licensed Rule 65 pharmacist desk, and updates your basket with a personalized Care Bundle upon approval.
             </p>
           </div>
 
@@ -178,7 +184,7 @@
               </div>
             </div>
             <button onclick="scrollToAssistant()" class="bg-tata-coral hover:bg-tata-coralDark text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md transition flex items-center gap-2">
-              Launch Smart Assistant <i class="fa-solid fa-arrow-right text-xs"></i>
+              Upload Prescription / Report <i class="fa-solid fa-arrow-right text-xs"></i>
             </button>
           </div>
         </div>
@@ -206,7 +212,7 @@
             <button onclick="setWorkflowMode('smart')" id="btnWorkflowSmart" class="w-full text-left p-3 rounded-xl border-2 border-teal-600 bg-teal-50/50 transition flex items-center justify-between shadow-xs">
               <div>
                 <div class="text-xs font-extrabold text-teal-950 flex items-center gap-1.5">
-                  Smart AI Assistant <span class="bg-teal-600 text-white text-[9px] px-1.5 py-0.2 rounded font-bold">EXPRESS</span>
+                  Smart AI Assistant <span class="bg-teal-600 text-white text-[9px] px-1.5 py-0.2 rounded font-bold">EXPRESS V3.0</span>
                 </div>
                 <div class="text-[11px] text-teal-800">10–15 min verified SLA &bull; Plain-English lab score</div>
               </div>
@@ -222,7 +228,7 @@
 
       </div>
 
-      <!-- LEGACY STATUS MODAL / ALERT (Triggered if user tests legacy flow) -->
+      <!-- LEGACY STATUS MODAL / ALERT -->
       <div id="legacyWorkflowAlert" class="hidden p-4 rounded-xl bg-amber-50 border border-amber-300 text-xs text-amber-950 space-y-2">
         <div class="flex items-start justify-between gap-4">
           <div class="flex items-start gap-2.5">
@@ -245,14 +251,14 @@
       <!-- ========================================================================= -->
       <section id="assistantHub" class="bg-white rounded-2xl shadow-sm border-2 border-teal-600/40 overflow-hidden">
         
-        <!-- Hub Title Header (Decluttered: No redundant "Active Case" badge) -->
+        <!-- Hub Title Header -->
         <div class="bg-gradient-to-r from-teal-900 via-teal-800 to-slate-900 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4">
           <div class="flex items-center space-x-3.5">
             <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-400/40 flex items-center justify-center text-teal-300 text-lg">
               <i class="fa-solid fa-wand-magic-sparkles"></i>
             </div>
             <div>
-              <h2 class="text-base sm:text-lg font-extrabold tracking-tight">Tata 1mg Smart Health Assistant</h2>
+              <h2 class="text-base sm:text-lg font-extrabold tracking-tight">Tata 1mg Smart Health Assistant (V3.0)</h2>
               <p class="text-xs text-teal-200">Biomarker-to-Basket Guidance with Guaranteed 10–15 Minute Express Pharmacist Verification</p>
             </div>
           </div>
@@ -300,65 +306,98 @@
               <span class="text-[11px] text-teal-700 font-semibold"><i class="fa-solid fa-lock text-teal-600 mr-1"></i>256-Bit Encrypted Health Vault</span>
             </div>
 
-            <!-- Functional Drag & Drop Zone -->
-            <div id="uploadDropzone" class="border-2 border-dashed border-teal-500/60 hover:border-teal-600 rounded-2xl p-6 text-center bg-teal-50/20 hover:bg-teal-50/40 transition cursor-pointer relative">
-              <input type="file" id="realDocUpload" accept=".pdf,.png,.jpg,.jpeg" onchange="handleRealFileUpload(event)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
-              <div class="space-y-2 pointer-events-none">
-                <div class="w-12 h-12 mx-auto rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xl">
+            <!-- Functional Drag & Drop Zone with Click and Drop Event Binding -->
+            <div id="uploadDropzone" class="border-2 border-dashed border-teal-500/60 hover:border-teal-600 rounded-2xl p-6 text-center bg-teal-50/20 hover:bg-teal-50/40 transition cursor-pointer relative group">
+              <!-- Native Hidden File Input -->
+              <input type="file" id="realDocUpload" accept=".pdf,.png,.jpg,.jpeg" class="hidden" />
+              
+              <div class="space-y-3 pointer-events-none">
+                <div class="w-14 h-14 mx-auto rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-2xl group-hover:scale-105 transition">
                   <i class="fa-solid fa-cloud-arrow-up"></i>
                 </div>
                 <div>
-                  <h4 class="font-bold text-sm text-slate-900">Drag &amp; Drop any Prescription or Lab PDF / Image here</h4>
-                  <p class="text-xs text-slate-500 mt-0.5">Supports PDF, JPG, PNG (Max 15MB) from your device or test with 1-click samples below</p>
+                  <h4 class="font-bold text-sm text-slate-900">Drag &amp; Drop any Lab Report or Prescription PDF / Image here</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">Supports PDF (multi-page text or scans), JPG, PNG up to 15MB</p>
                 </div>
-                <div class="inline-block bg-white border border-slate-200 text-teal-700 font-semibold text-xs px-3.5 py-1.5 rounded-lg shadow-2xs">
-                  Browse Files on Device
+                
+                <div class="flex items-center justify-center gap-3 pt-1 pointer-events-auto">
+                  <button type="button" onclick="triggerFileUploadClick(event)" class="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs px-4 py-2 rounded-lg shadow-sm transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-folder-open text-xs"></i> Browse Files on Device
+                  </button>
+                  <button type="button" onclick="loadSimulatedTestPdf(event)" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-semibold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1.5 cursor-pointer" title="Test with simulated Sunil Verma CBC & Lipid PDF">
+                    <i class="fa-solid fa-file-pdf text-rose-500 text-xs"></i> Instant Demo Lab PDF
+                  </button>
                 </div>
               </div>
             </div>
 
-            <!-- File Upload Progress Banner (Hidden by default) -->
-            <div id="uploadProgressBanner" class="hidden p-4 rounded-xl bg-slate-900 text-white flex items-center justify-between text-xs">
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-full border-2 border-teal-400 border-t-transparent animate-spin"></div>
+            <!-- File Upload & OCR Multi-Phase Scanning Banner (Hidden by default) -->
+            <div id="uploadProgressBanner" class="hidden p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-md">
+              <div class="flex items-center space-x-3.5">
+                <div class="w-9 h-9 rounded-full border-3 border-teal-400 border-t-transparent animate-spin shrink-0"></div>
                 <div>
-                  <strong id="uploadFileName" class="block font-bold">Uploading document...</strong>
-                  <span id="uploadFileMeta" class="text-slate-400 text-[11px]">Executing Optical OCR &amp; Biomarker parsing...</span>
+                  <div class="flex items-center gap-2">
+                    <strong id="uploadFileName" class="font-bold text-white text-xs">Parsing Document...</strong>
+                    <span id="uploadProgressStep" class="bg-teal-500/30 text-teal-300 text-[10px] font-mono px-2 py-0.5 rounded">Phase 1/3: PDF Stream Read</span>
+                  </div>
+                  <span id="uploadFileMeta" class="text-slate-300 text-[11px] mt-0.5 block">Extracting optical text, biomarker ranges &amp; patient metadata...</span>
                 </div>
               </div>
-              <span class="bg-teal-500/20 text-teal-300 px-2.5 py-1 rounded font-mono text-[11px]">Optical Scanner Active</span>
+              <div class="flex items-center space-x-2 shrink-0">
+                <span class="bg-teal-500/20 text-teal-300 border border-teal-400/40 px-2.5 py-1 rounded font-mono text-[11px]">
+                  <i class="fa-solid fa-microscope mr-1 text-teal-400"></i> Optical OCR Engine Active
+                </span>
+              </div>
             </div>
 
-            <!-- 3 Compact Quick-Load Demo Chips -->
-            <div class="space-y-2 pt-1">
-              <span class="text-xs font-bold text-slate-500 block">Or instant test with 1-click clinical presets:</span>
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <button onclick="loadPresetCase('diabetes')" id="presetBtn_diabetes" class="preset-chip text-left p-3 rounded-xl border border-slate-200 hover:border-teal-600 bg-white hover:bg-slate-50 transition flex items-center justify-between">
-                  <div>
-                    <span class="inline-block text-[10px] font-bold bg-rose-100 text-rose-800 px-1.5 py-0.2 rounded mb-1">Rx + Lab Report</span>
-                    <h5 class="text-xs font-bold text-slate-900">Sample 1: Diabetes &amp; Lipid PDF</h5>
-                    <p class="text-[11px] text-slate-500">HbA1c 8.2% &bull; LDL 168 mg/dL</p>
-                  </div>
-                  <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
-                </button>
+            <!-- CLINICAL PRESETS & UPLOADED PATIENT PROFILES CONTAINER -->
+            <div class="space-y-3 pt-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                  <i class="fa-solid fa-users text-teal-600"></i>
+                  <span>Patient Profiles &amp; Clinical Presets:</span>
+                </span>
+                <span id="presetCountBadge" class="text-[10px] bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">
+                  3 Built-in Presets
+                </span>
+              </div>
 
-                <button onclick="loadPresetCase('vitamin')" id="presetBtn_vitamin" class="preset-chip text-left p-3 rounded-xl border border-slate-200 hover:border-teal-600 bg-white hover:bg-slate-50 transition flex items-center justify-between">
-                  <div>
-                    <span class="inline-block text-[10px] font-bold bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded mb-1">Diagnostic Report</span>
-                    <h5 class="text-xs font-bold text-slate-900">Sample 2: Vitamin Deficiency Lab</h5>
-                    <p class="text-[11px] text-slate-500">Vit D3 11 ng/mL &bull; B12 145 pg/mL</p>
-                  </div>
-                  <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
-                </button>
+              <!-- DYNAMIC CONTAINER FOR UPLOADED PATIENT CARDS (Inserted upon user upload) -->
+              <div id="uploadedPatientsContainer" class="space-y-2">
+                <!-- Dynamically populated when user uploads a real lab report / PDF -->
+              </div>
 
-                <button onclick="loadPresetCase('thyroid')" id="presetBtn_thyroid" class="preset-chip text-left p-3 rounded-xl border border-slate-200 hover:border-teal-600 bg-white hover:bg-slate-50 transition flex items-center justify-between">
-                  <div>
-                    <span class="inline-block text-[10px] font-bold bg-purple-100 text-purple-800 px-1.5 py-0.2 rounded mb-1">Handwritten Doctor Rx</span>
-                    <h5 class="text-xs font-bold text-slate-900">Sample 3: Handwritten Thyroid Rx</h5>
-                    <p class="text-[11px] text-slate-500">TSH 7.8 mIU/L &bull; Thyronorm 50mcg</p>
-                  </div>
-                  <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
-                </button>
+              <!-- 3 Built-in Quick-Load Demo Chips -->
+              <div class="space-y-1.5">
+                <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Standard 1-Click Clinical Presets:</span>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <button onclick="loadPresetCase('diabetes')" id="presetBtn_diabetes" class="preset-chip text-left p-3 rounded-xl border border-teal-600 bg-teal-50/50 hover:bg-teal-50 transition flex items-center justify-between">
+                    <div>
+                      <span class="inline-block text-[10px] font-bold bg-rose-100 text-rose-800 px-1.5 py-0.2 rounded mb-1">Rx + Lab Report</span>
+                      <h5 class="text-xs font-bold text-slate-900">Sample 1: Diabetes &amp; Lipid PDF</h5>
+                      <p class="text-[11px] text-slate-500">HbA1c 8.2% &bull; LDL 168 mg/dL</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
+                  </button>
+
+                  <button onclick="loadPresetCase('vitamin')" id="presetBtn_vitamin" class="preset-chip text-left p-3 rounded-xl border border-slate-200 hover:border-teal-600 bg-white hover:bg-slate-50 transition flex items-center justify-between">
+                    <div>
+                      <span class="inline-block text-[10px] font-bold bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded mb-1">Diagnostic Report</span>
+                      <h5 class="text-xs font-bold text-slate-900">Sample 2: Vitamin Deficiency Lab</h5>
+                      <p class="text-[11px] text-slate-500">Vit D3 11 ng/mL &bull; B12 145 pg/mL</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
+                  </button>
+
+                  <button onclick="loadPresetCase('thyroid')" id="presetBtn_thyroid" class="preset-chip text-left p-3 rounded-xl border border-slate-200 hover:border-teal-600 bg-white hover:bg-slate-50 transition flex items-center justify-between">
+                    <div>
+                      <span class="inline-block text-[10px] font-bold bg-purple-100 text-purple-800 px-1.5 py-0.2 rounded mb-1">Handwritten Doctor Rx</span>
+                      <h5 class="text-xs font-bold text-slate-900">Sample 3: Handwritten Thyroid Rx</h5>
+                      <p class="text-[11px] text-slate-500">TSH 7.8 mIU/L &bull; Thyronorm 50mcg</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -373,14 +412,14 @@
             </div>
           </div>
 
-          <!-- STEP 2 & 3 & 4 DYNAMIC RESULTS WORKSPACE (Shown once a document is scanned) -->
-          <div id="assistantResultsWorkspace" class="hidden space-y-6 pt-4 border-t border-slate-200">
+          <!-- STEP 2 & 3 & 4 DYNAMIC RESULTS WORKSPACE (Revealed upon document scanning / preset load) -->
+          <div id="assistantResultsWorkspace" class="space-y-6 pt-4 border-t border-slate-200">
             
             <!-- STEP 3 BANNER: REALISTIC 10–15 MIN PHARMACIST EXPRESS SLA BADGE -->
-            <div class="bg-emerald-50 border-2 border-emerald-500/40 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4">
+            <div id="slaNotificationBanner" class="bg-emerald-50 border-2 border-emerald-500/40 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4">
               <div class="flex items-center space-x-3.5">
-                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-base shadow-xs">
-                  <i class="fa-solid fa-user-check"></i>
+                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-base shadow-xs shrink-0">
+                  <i id="slaStatusIcon" class="fa-solid fa-user-check"></i>
                 </div>
                 <div>
                   <div class="flex items-center gap-2 flex-wrap">
@@ -398,9 +437,9 @@
               </div>
 
               <!-- Quick Link to Pharmacist Desk -->
-              <div class="flex items-center gap-3 text-xs">
+              <div class="flex items-center gap-2 text-xs">
                 <button onclick="switchRoleView('pharmacist')" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold px-3 py-1.5 rounded-lg shadow-2xs transition flex items-center gap-1.5">
-                  <i class="fa-solid fa-microscope text-teal-600"></i> View in Pharmacist Desk
+                  <i class="fa-solid fa-microscope text-teal-600"></i> Open Pharmacist Desk
                 </button>
               </div>
             </div>
@@ -408,28 +447,30 @@
             <!-- TWO-COLUMN WORKSPACE: LEFT = BIOMARKER TRANSLATOR (STEP 2) | RIGHT = CARE BUNDLE (STEP 4) -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
               
-              <!-- Left 5 Cols: Step 2: Plain-English Biomarker Translation -->
-              <div class="lg:col-span-5 bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-4">
+              <!-- Left 6 Cols: Step 2: Plain-English Biomarker Translation -->
+              <div class="lg:col-span-6 bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-4">
                 <div class="flex items-center justify-between">
                   <div>
                     <span class="text-[10px] font-bold text-teal-700 uppercase tracking-wider block">Step 2: Plain-English Translation</span>
-                    <h3 class="text-sm font-extrabold text-slate-900">Your Lab Biomarkers Explained</h3>
+                    <h3 id="step2HeaderTitle" class="text-sm font-extrabold text-slate-900">Your Lab Biomarkers Explained</h3>
                   </div>
                   <span id="patientHealthScoreBadge" class="text-xs font-extrabold px-3 py-1 rounded-full bg-rose-100 text-rose-900">
                     Health Score: 62/100
                   </span>
                 </div>
-                <p class="text-xs text-slate-600">Complex clinical numbers translated into clear, actionable health insights:</p>
+                <p class="text-xs text-slate-600">
+                  Complex clinical numbers translated into plain English, highlighting <strong>out-of-range biomarkers</strong>, matched <strong>recommended drugs</strong>, and <strong>practical clinical advice</strong>:
+                </p>
 
-                <!-- Dynamic Biomarker Cards -->
-                <div id="biomarkerCardsList" class="space-y-3">
+                <!-- Dynamic Biomarker Cards (Rich 4-Element Layout) -->
+                <div id="biomarkerCardsList" class="space-y-3.5">
                   <!-- Populated by JS -->
                 </div>
 
                 <!-- Clinical Guideline Citation -->
                 <div class="bg-white p-3 rounded-lg border border-slate-200 text-[11px] text-slate-600 space-y-1">
                   <div class="font-bold text-slate-800 flex items-center gap-1">
-                    <i class="fa-solid fa-graduation-cap text-teal-600"></i> Clinical Validation:
+                    <i class="fa-solid fa-graduation-cap text-teal-600"></i> Clinical Validation &amp; Guideline Reference:
                   </div>
                   <p id="clinicalCitationText" class="text-slate-600 leading-relaxed">
                     Matched against ICMR 2024 Guidelines. All prescription drugs adhere to strict doctor dosage; supplementary items are FSSAI-certified.
@@ -437,8 +478,8 @@
                 </div>
               </div>
 
-              <!-- Right 7 Cols: Step 4: 3-Tier Care Regimen & Cart Builder -->
-              <div class="lg:col-span-7 bg-white rounded-xl p-5 border-2 border-teal-600 shadow-sm space-y-4">
+              <!-- Right 6 Cols: Step 4: 3-Tier Care Regimen & Cart Builder -->
+              <div class="lg:col-span-6 bg-white rounded-xl p-5 border-2 border-teal-600 shadow-sm space-y-4">
                 
                 <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100">
                   <div>
@@ -457,7 +498,19 @@
                   </div>
                 </div>
 
-                <!-- 3-Tier Items Breakdown List (Consumer facing prices & savings only) -->
+                <!-- Approval & Auto-Basket Notification Badge -->
+                <div id="bundleApprovalBanner" class="p-3 rounded-xl bg-teal-50 border border-teal-200 text-teal-950 text-xs flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-teal-600 text-base"></i>
+                    <div>
+                      <strong id="bundleApprovalStatusText" class="block font-bold">Rule 65 Pharmacist Validated</strong>
+                      <span class="text-[11px] text-teal-800">Prescription drugs and daily vitamins bundled into your synchronized basket.</span>
+                    </div>
+                  </div>
+                  <span class="bg-teal-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded shrink-0">In Basket</span>
+                </div>
+
+                <!-- 3-Tier Items Breakdown List -->
                 <div id="bundleItemsList" class="space-y-2.5 divide-y divide-slate-100">
                   <!-- Populated dynamically by JS -->
                 </div>
@@ -479,7 +532,7 @@
                 </div>
 
                 <!-- High-Impact Add Care Bundle to Cart CTA -->
-                <button onclick="addSmartBundleToCart()" class="w-full bg-tata-coral hover:bg-tata-coralDark text-white font-extrabold py-3 px-4 rounded-xl text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
+                <button id="addBundleBtn" onclick="addSmartBundleToCart()" class="w-full bg-tata-coral hover:bg-tata-coralDark text-white font-extrabold py-3 px-4 rounded-xl text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
                   <i class="fa-solid fa-cart-plus"></i>
                   <span id="addBundleBtnText">Add 90-Day Complete Care Bundle to Cart (₹2,640)</span>
                 </button>
@@ -495,7 +548,7 @@
       </section>
 
       <!-- ========================================================================= -->
-      <!-- FEATURED CONSUMER PRODUCT CATALOG (Pure Consumer UI: No Internal Margins)  -->
+      <!-- FEATURED CONSUMER PRODUCT CATALOG (Medicines, Vitamins, Diagnostic Labs)  -->
       <!-- ========================================================================= -->
       <section id="catalogSection" class="space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-3">
@@ -513,7 +566,7 @@
           </div>
         </div>
 
-        <!-- Product Grid (Consumer-facing cards) -->
+        <!-- Product Grid -->
         <div id="consumerProductGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <!-- Dynamically populated by JS -->
         </div>
@@ -582,7 +635,7 @@
           <i class="fa-solid fa-list-check text-teal-600"></i>
           <h2 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">Inbound Prescription &amp; Lab Triage Queue</h2>
         </div>
-        <span class="text-[11px] text-slate-500">Auto-refreshed via Webhook Telemetry &bull; Sorted by SLA Urgency</span>
+        <span class="text-[11px] text-slate-500">Auto-updated on document upload &bull; Sorted by SLA Urgency</span>
       </div>
 
       <div class="overflow-x-auto">
@@ -594,12 +647,12 @@
               <th class="p-3">Uploaded File / Type</th>
               <th class="p-3">Doctor / Clinic</th>
               <th class="p-3">Elapsed Time / Target SLA</th>
-              <th class="p-3">OCR Status</th>
+              <th class="p-3">Status</th>
               <th class="p-3">Action</th>
             </tr>
           </thead>
           <tbody id="pharmacistQueueTbody" class="divide-y divide-slate-100">
-            <!-- Populated by JS -->
+            <!-- Populated dynamically by JS -->
           </tbody>
         </table>
       </div>
@@ -613,36 +666,40 @@
         <div class="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
             <h3 class="text-sm font-extrabold text-slate-900">Document Scan &amp; OCR Bounding Visualizer</h3>
-            <span id="deskDocMeta" class="text-xs text-slate-500">Case A: Type-2 Diabetes &amp; Dyslipidemia Clinical Rx</span>
+            <span id="deskDocMeta" class="text-xs text-slate-500">Active Case Review</span>
           </div>
           <span class="bg-teal-50 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded border border-teal-200">
             OCR Confidence: 99.4%
           </span>
         </div>
 
-        <!-- Simulated Document Preview Container -->
+        <!-- Simulated Document Preview Container (Dynamically updated for each patient) -->
         <div class="border border-slate-200 rounded-xl bg-slate-50 p-4 space-y-3 font-mono text-xs">
           <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-2">
             <div class="flex justify-between border-b border-slate-100 pb-2 text-[11px] text-slate-500">
-              <span><strong>Dr. S. K. Mehta, MD (Medicine)</strong> &bull; Reg #DMC-39182</span>
+              <span id="deskDoctorHeader"><strong>Dr. S. K. Mehta, MD (Medicine)</strong> &bull; Reg #DMC-39182</span>
               <span>Apollo MedCity, New Delhi</span>
             </div>
             <div class="text-[11px] text-slate-700 space-y-1">
-              <div><strong>Patient:</strong> Ramesh Chandra, 54Y / Male &bull; Date: 22-Oct-2026</div>
-              <div><strong>Clinical Diagnosis:</strong> T2D (Uncontrolled) + Hypercholesterolemia</div>
+              <div><strong>Patient:</strong> <span id="deskPatientHeader">Ramesh Chandra, 54Y / Male &bull; Date: 22-Oct-2026</span></div>
+              <div><strong>Clinical Diagnosis:</strong> <span id="deskDiagnosisHeader">T2D (Uncontrolled) + Hypercholesterolemia</span></div>
             </div>
             
             <div class="p-2.5 rounded bg-amber-50/80 border border-amber-200 text-amber-900 text-[11px] space-y-1">
               <strong class="text-amber-950 block"><i class="fa-solid fa-highlighter mr-1"></i>Prescribed Schedule H Items (Extracted):</strong>
-              <div>1. Tab. Glycomet-GP 2 (Glimepiride 2mg + Metformin 500mg) - 1 tab OD after breakfast</div>
-              <div>2. Tab. Atorva 20mg (Atorvastatin 20mg) - 1 tab HS at night</div>
+              <div id="deskExtractedRxItems">
+                <div>1. Tab. Glycomet-GP 2 (Glimepiride 2mg + Metformin 500mg) - 1 tab OD after breakfast</div>
+                <div>2. Tab. Atorva 20mg (Atorvastatin 20mg) - 1 tab HS at night</div>
+              </div>
             </div>
 
             <div class="p-2.5 rounded bg-blue-50/80 border border-blue-200 text-blue-900 text-[11px] space-y-1">
-              <strong class="text-blue-950 block"><i class="fa-solid fa-vial-circle-check mr-1"></i>Attached Diagnostic Lab Findings:</strong>
-              <div>&bull; HbA1c: <strong>8.2%</strong> (Ref: &lt;5.7%) | Fasting Glucose: 164 mg/dL</div>
-              <div>&bull; Serum LDL: <strong>168 mg/dL</strong> (Ref: &lt;100 mg/dL) | Total Chol: 242 mg/dL</div>
-              <div>&bull; Serum 25-OH Vitamin D3: <strong>14.2 ng/mL</strong> (Ref: 30–100 ng/mL)</div>
+              <strong class="text-blue-950 block"><i class="fa-solid fa-vial-circle-check mr-1"></i>Attached Diagnostic Lab Findings (Out-of-Range):</strong>
+              <div id="deskExtractedLabFindings">
+                <div>&bull; HbA1c: <strong>8.2%</strong> (Ref: &lt;5.7%) | Fasting Glucose: 164 mg/dL</div>
+                <div>&bull; Serum LDL: <strong>168 mg/dL</strong> (Ref: &lt;100 mg/dL) | Total Chol: 242 mg/dL</div>
+                <div>&bull; Serum 25-OH Vitamin D3: <strong>14.2 ng/mL</strong> (Ref: 30–100 ng/mL)</div>
+              </div>
             </div>
           </div>
         </div>
@@ -657,15 +714,15 @@
             </div>
             <div class="bg-emerald-50 text-emerald-900 p-2 rounded-lg border border-emerald-200 flex items-center gap-2 text-[11px]">
               <i class="fa-solid fa-circle-check text-emerald-600"></i>
-              <span><strong>Dosage Safety:</strong> Metformin 500mg + Glimepiride 2mg safe</span>
+              <span><strong>Dosage Safety:</strong> Active ingredient dosing within limits</span>
             </div>
             <div class="bg-emerald-50 text-emerald-900 p-2 rounded-lg border border-emerald-200 flex items-center gap-2 text-[11px]">
               <i class="fa-solid fa-circle-check text-emerald-600"></i>
-              <span><strong>ICMR Guidelines:</strong> High LDL &amp; HbA1c matches therapy</span>
+              <span><strong>Guidelines:</strong> Therapy matches out-of-range biomarkers</span>
             </div>
             <div class="bg-emerald-50 text-emerald-900 p-2 rounded-lg border border-emerald-200 flex items-center gap-2 text-[11px]">
               <i class="fa-solid fa-circle-check text-emerald-600"></i>
-              <span><strong>FSSAI Supplement:</strong> D3 &amp; Omega-3 complementary</span>
+              <span><strong>FSSAI Supplement:</strong> Targeted dietary vitamins compliant</span>
             </div>
           </div>
         </div>
@@ -677,7 +734,7 @@
         <div class="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
             <h3 class="text-sm font-extrabold text-slate-900">Clinical Approval &amp; Rule 65 Digital Sign-Off</h3>
-            <span class="text-xs text-slate-500">Stamps the prescription and pushes verified state to customer cart</span>
+            <span class="text-xs text-slate-500">Stamps the prescription and pushes verified Care Bundle to customer basket</span>
           </div>
           <span id="deskStampStatus" class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">
             Digitally Stamped
@@ -687,7 +744,7 @@
         <div class="space-y-3 text-xs">
           <div>
             <label class="block font-bold text-slate-700 mb-1">Pharmacist Clinical Notes &amp; Patient Advisory:</label>
-            <textarea id="deskPharmacistNote" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs focus:outline-none focus:border-teal-600">Verified doctor's registration with Delhi Medical Council. Confirmed dosage adherence for Glycomet-GP 2 and Atorva 20mg. Advised patient to take Metformin post breakfast to avoid GI irritation. Re-check HbA1c in 90 days.</textarea>
+            <textarea id="deskPharmacistNote" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs focus:outline-none focus:border-teal-600">Verified doctor's registration with Medical Council. Confirmed dosage adherence for prescribed Schedule H medication. Advised patient on meal-time dosing. Re-check out-of-range biomarkers in 90 days.</textarea>
           </div>
 
           <div class="bg-slate-50 rounded-xl p-3 border border-slate-200 space-y-1.5 text-[11px]">
@@ -714,7 +771,7 @@
         <div class="space-y-2 pt-2">
           <button id="btnApproveStamp" onclick="executePharmacistApproval()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-3 px-4 rounded-xl text-xs shadow-md transition flex items-center justify-center gap-2">
             <i class="fa-solid fa-stamp"></i>
-            <span>Approve &amp; Digitally Stamp Rx (Rule 65 Cleared)</span>
+            <span id="btnApproveStampText">Approve &amp; Digitally Stamp Rx (Rule 65 Cleared)</span>
           </button>
           
           <button onclick="switchRoleView('storefront')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 px-4 rounded-xl text-xs transition">
@@ -739,7 +796,7 @@
         <span class="text-[11px] font-bold uppercase tracking-wider text-teal-400">CIA 1: KPI Detective Strategic Teardown</span>
         <h1 class="text-xl sm:text-2xl font-extrabold mt-0.5">Executive KRA &rarr; KPI &rarr; Metric &rarr; Measure Scoreboard</h1>
         <p class="text-xs text-slate-300 mt-1 max-w-3xl">
-          Plain-English business analytics contrasting Tata 1mg's legacy pill-dispensing funnel against the new <strong>Smart Health Assistant &amp; CarePath AI</strong>. All live user interactions dynamically update simulated measures.
+          Plain-English business analytics contrasting Tata 1mg's legacy pill-dispensing funnel against the new <strong>Smart Health Assistant &amp; CarePath AI (V3.0)</strong>. All user interactions dynamically update simulated measures.
         </p>
       </div>
       <div class="flex items-center gap-2">
@@ -760,9 +817,9 @@
       </div>
 
       <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-        <span class="text-[11px] font-semibold text-slate-500 uppercase">Care Bundles Added</span>
+        <span class="text-[11px] font-semibold text-slate-500 uppercase">Care Bundles in Basket</span>
         <div class="flex items-baseline justify-between mt-1">
-          <span id="metric_bundles" class="text-2xl font-extrabold text-teal-700">0</span>
+          <span id="metric_bundles" class="text-2xl font-extrabold text-teal-700">1</span>
           <span class="text-[11px] text-emerald-600 font-semibold">3-Tier High Margin</span>
         </div>
       </div>
@@ -784,7 +841,7 @@
       </div>
     </div>
 
-    <!-- THE 4 PILLARS: PLAIN-ENGLISH HIERARCHY TABLE (Updated with 10-15 Min Express SLA) -->
+    <!-- THE 4 PILLARS: PLAIN-ENGLISH HIERARCHY TABLE -->
     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
       <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
         <div>
@@ -805,7 +862,7 @@
               <th class="p-3.5">2. KPI (Main Scoreboard)</th>
               <th class="p-3.5">3. Supporting Metrics</th>
               <th class="p-3.5">4. Raw Measures</th>
-              <th class="p-3.5">Legacy Baseline vs. CarePath AI V2.0 Target</th>
+              <th class="p-3.5">Legacy Baseline vs. CarePath AI V3.0 Target</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-200 align-top">
@@ -925,7 +982,7 @@
       <!-- Funnel Waterfall Drop-Off Audit (6 Cols) -->
       <div class="lg:col-span-6 bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs space-y-4">
         <div>
-          <h3 class="text-sm font-extrabold text-slate-900">Conversion Funnel Waterfall: Legacy vs. CarePath AI V2.0</h3>
+          <h3 class="text-sm font-extrabold text-slate-900">Conversion Funnel Waterfall: Legacy vs. CarePath AI V3.0</h3>
           <p class="text-xs text-slate-500">Per 1,000 monthly patients uploading a prescription or viewing diagnostic lab results</p>
         </div>
 
@@ -979,7 +1036,7 @@
         </div>
 
         <div class="bg-teal-50 border border-teal-200 rounded-xl p-3 text-xs text-teal-950">
-          <strong>Bottom-Line Strategic Result:</strong> The legacy funnel yields <strong>₹54,000 Gross Profit</strong> per 1,000 document uploads. The CarePath AI V2.0 funnel yields <strong>₹4,12,000 Gross Profit (7.6x profit expansion)</strong> from existing traffic without additional customer acquisition cost.
+          <strong>Bottom-Line Strategic Result:</strong> The legacy funnel yields <strong>₹54,000 Gross Profit</strong> per 1,000 document uploads. The CarePath AI V3.0 funnel yields <strong>₹4,12,000 Gross Profit (7.6x profit expansion)</strong> from existing traffic without additional customer acquisition cost.
         </div>
       </div>
 
@@ -1003,7 +1060,7 @@
             </thead>
             <tbody class="divide-y divide-slate-100">
               <tr class="bg-teal-50/80 font-semibold text-slate-900">
-                <td class="p-2.5 text-teal-900 font-extrabold">Tata 1mg (CarePath V2.0)</td>
+                <td class="p-2.5 text-teal-900 font-extrabold">Tata 1mg (CarePath V3.0)</td>
                 <td class="p-2.5 text-emerald-700 font-bold">10–15 Mins (Express SLA)</td>
                 <td class="p-2.5 text-emerald-700 font-bold">Yes (3-Tier Care Bundle)</td>
                 <td class="p-2.5 text-emerald-700 font-bold">42% Blended</td>
@@ -1080,7 +1137,7 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- SLIDE-OVER SHOPPING CART DRAWER (Pure Customer View in Storefront)        -->
+  <!-- SLIDE-OVER SHOPPING CART DRAWER                                           -->
   <!-- ========================================================================= -->
   <div id="cartDrawerBackdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-slate-900/50 z-50 hidden transition-opacity"></div>
   <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
@@ -1157,10 +1214,10 @@
     </div>
   </div>
 
-  <!-- FOOTER (Academic attribution strictly here) -->
+  <!-- FOOTER -->
   <footer class="max-w-7xl mx-auto px-4 mt-12 pt-8 pb-6 border-t border-slate-200 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-4">
     <div>
-      <strong class="text-slate-800">TATA 1mg CarePath AI Prototype (Version 2.0)</strong> &bull; Built for MBA Digital &amp; Social Media Analytics (CIA 1 – KPI Detective)
+      <strong class="text-slate-800">TATA 1mg CarePath AI Prototype (Version 3.0)</strong> &bull; Built for MBA Digital &amp; Social Media Analytics (CIA 1 – KPI Detective)
     </div>
     <div class="flex items-center space-x-4">
       <span><i class="fa-solid fa-check-double text-teal-600 mr-1"></i>Option 2.2: Existing Brand + New Tech USP</span>
@@ -1169,7 +1226,7 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- APPLICATION LOGIC & MOCK GA4 DATALAYER ENGINE (VERSION 2.0)               -->
+  <!-- APPLICATION LOGIC & MOCK GA4 DATALAYER ENGINE (VERSION 3.0)               -->
   <!-- ========================================================================= -->
   <script>
     // 1. Initialize standard GA4-compatible dataLayer
@@ -1184,22 +1241,27 @@
       dpdpConsent: true,
       pharmacistApproved: true,
       scansCompleted: 1,
-      bundlesAdded: 0,
+      bundlesAdded: 1,
       legacyDropoffs: 0,
       uploadedFileName: null,
-      cart: []
+      cart: [],
+      uploadedPatients: {} // Store custom uploaded patient cases
     };
 
-    // 3. Clinical Case Presets
+    // 3. Clinical Cases Registry (Includes Out-of-Range Biomarkers with Plain-English, Recommended Drug, and Advice)
     const clinicalCases = {
       diabetes: {
         id: 'diabetes',
+        patientName: 'Ramesh Chandra (54Y / M)',
         label: 'Case A: Type-2 Diabetes & Dyslipidemia (Rx + Lab PDF)',
         healthScore: '62 / 100',
         scoreText: 'Action Needed',
         scoreClass: 'bg-rose-100 text-rose-900 border border-rose-300',
         pharmacist: 'RPh. Ananya Sharma (Reg #DL-48291)',
+        doctor: 'Dr. S. K. Mehta, MD (DMC-39182) • Apollo MedCity',
+        fileName: 'Dr_Mehta_Prescription_Oct26.pdf',
         guideline: 'Mapped against ICMR 2024 Guidelines for Type-2 Diabetes & Dyslipidemia. Schedule H medicines locked to prescription; supplements adhere to FSSAI RDA.',
+        outOfRangeSummary: 'HbA1c 8.2% (High) • LDL 168 mg/dL (Elevated) • Vit D3 14.2 ng/mL (Deficient)',
         biomarkers: [
           {
             name: 'HbA1c (3-Month Avg Glucose)',
@@ -1207,15 +1269,21 @@
             ref: 'Normal: < 5.7%',
             status: 'Elevated (High)',
             color: 'text-rose-700 bg-rose-50 border-rose-200',
-            plainEnglish: 'Your average blood sugar over the last 90 days is elevated above safe targets. Daily compliance with prescribed Glycomet-GP 2 is essential to prevent microvascular strain.'
+            plainEnglish: 'Your average blood sugar over the last 90 days is elevated above safe targets. Sustained glucose elevation increases stress on peripheral nerves, kidneys, and blood vessels.',
+            recommendedDrug: 'Glycomet-GP 2 Tablet PR (Glimepiride 2mg + Metformin 500mg PR)',
+            drugDosage: '1 tablet once daily post-breakfast with water',
+            advice: 'Take immediately after breakfast to avoid gastric distress. Maintain steady meal timing, reduce refined sugars, and re-test HbA1c in 90 days.'
           },
           {
             name: 'LDL Cholesterol ("Bad" Lipids)',
             value: '168 mg/dL',
             ref: 'Optimal: < 100 mg/dL',
-            status: 'Elevated',
+            status: 'Elevated (Arterial Risk)',
             color: 'text-rose-700 bg-rose-50 border-rose-200',
-            plainEnglish: 'High LDL promotes arterial plaque buildup. Prescribed Atorvastatin paired with high-purity Omega-3 fish oil to lower arterial inflammation.'
+            plainEnglish: 'Elevated LDL cholesterol circulates excess low-density fats that contribute to arterial plaque buildup and cardiovascular stiffness.',
+            recommendedDrug: 'Atorva 20mg Tablet (Atorvastatin 20mg)',
+            drugDosage: '1 tablet once daily at bedtime',
+            advice: 'Take at bedtime when liver cholesterol synthesis is at its physiological peak. Pair with dietary soluble fiber and low-saturated-fat cooking oils.'
           },
           {
             name: 'Serum Vitamin D3 (25-OH)',
@@ -1223,7 +1291,10 @@
             ref: 'Sufficient: 30–100 ng/mL',
             status: 'Deficient',
             color: 'text-amber-800 bg-amber-50 border-amber-200',
-            plainEnglish: 'Low Vitamin D3 impairs cellular insulin sensitivity. FSSAI-approved Vitamin D3 + K2 softgels added to restore normal metabolic levels safely.'
+            plainEnglish: 'Low Vitamin D3 impairs cellular insulin sensitivity and bone calcium deposition, often worsening fatigue in diabetic individuals.',
+            recommendedDrug: 'Tata 1mg Vitamin D3 + K2 Softgels (60,000 IU)',
+            drugDosage: '1 softgel weekly with a fat-containing meal for 8 weeks',
+            advice: 'Vitamin D3 is fat-soluble; consume with your heaviest meal or warm milk for maximum intestinal absorption.'
           }
         ],
         bundle30: {
@@ -1253,12 +1324,16 @@
 
       vitamin: {
         id: 'vitamin',
+        patientName: 'Kavita Verma (38Y / F)',
         label: 'Case B: Chronic Fatigue & Micronutrient Deficiency (Lab PDF)',
         healthScore: '71 / 100',
         scoreText: 'Moderate Deficiency',
         scoreClass: 'bg-amber-100 text-amber-900 border border-amber-300',
         pharmacist: 'RPh. Siddharth Nair (Reg #KA-90312)',
+        doctor: 'Dr. A. Sen, MD (KMC-11048) • Manipal Clinic',
+        fileName: 'Thyrocare_CBC_Lipid_Report.pdf',
         guideline: 'Mapped against NIN / ICMR RDA Reference Guidelines. All recommended supplements are Over-the-Counter FSSAI dietary formulations.',
+        outOfRangeSummary: 'Vit B12 145 pg/mL (Deficient) • Vit D3 11.0 ng/mL (Severely Low) • Ferritin 19 ng/mL (Low)',
         biomarkers: [
           {
             name: 'Vitamin B12 (Cobalamin)',
@@ -1266,7 +1341,10 @@
             ref: 'Normal: 211–911 pg/mL',
             status: 'Deficient',
             color: 'text-rose-700 bg-rose-50 border-rose-200',
-            plainEnglish: 'Causes reported afternoon lethargy, brain fog, and nerve tingling. Added methylcobalamin with cofactor folate for active neural absorption.'
+            plainEnglish: 'Causes reported afternoon lethargy, brain fog, and nerve tingling. Added methylcobalamin with cofactor folate for active neural absorption.',
+            recommendedDrug: 'Tata 1mg Vitamin B12 + Folate + Iron Strips',
+            drugDosage: '1 sublingual strip daily after lunch',
+            advice: 'Sublingual strip dissolves directly under tongue for superior mucosal absorption bypassing gastric acid breakdown.'
           },
           {
             name: 'Vitamin D3 (25-Hydroxy)',
@@ -1274,7 +1352,10 @@
             ref: 'Sufficient: 30–100 ng/mL',
             status: 'Severely Low',
             color: 'text-rose-700 bg-rose-50 border-rose-200',
-            plainEnglish: 'Severe deficiency resulting in fatigue and low bone density. Formulated with high-potency D3 softgels.'
+            plainEnglish: 'Severe deficiency resulting in persistent muscular fatigue, poor sleep recovery, and weakened bone mineral matrix.',
+            recommendedDrug: 'Tata 1mg Vitamin D3 + K2 Softgels (60,000 IU)',
+            drugDosage: '1 softgel once weekly for 8 weeks',
+            advice: 'Take with whole milk or a meal containing healthy fats. Spend 15 minutes in morning sunlight when possible.'
           },
           {
             name: 'Serum Ferritin (Iron Reserve)',
@@ -1282,7 +1363,10 @@
             ref: 'Optimal: 30–200 ng/mL',
             status: 'Borderline Low',
             color: 'text-amber-800 bg-amber-50 border-amber-200',
-            plainEnglish: 'Your iron storage is low, reducing cellular oxygen circulation. Matched with gentle, gut-friendly iron strips.'
+            plainEnglish: 'Your iron storage is low, reducing cellular oxygen circulation and predisposing you to microcytic anemia.',
+            recommendedDrug: 'Gentle Iron Chelate + Vitamin C Capsules',
+            drugDosage: '1 capsule daily with citrus juice',
+            advice: 'Avoid taking iron within 2 hours of coffee, tea, or milk, as caffeine and calcium block iron absorption.'
           }
         ],
         bundle30: {
@@ -1311,12 +1395,16 @@
 
       thyroid: {
         id: 'thyroid',
+        patientName: 'Manish Joshi (45Y / M)',
         label: 'Case C: Hypothyroidism & Hair Fall Care (Handwritten Rx)',
         healthScore: '68 / 100',
         scoreText: 'Hormonal Imbalance',
         scoreClass: 'bg-purple-100 text-purple-900 border border-purple-300',
         pharmacist: 'RPh. Priya Kulkarni (Reg #MH-66104)',
-        guideline: 'Indian Thyroid Society Guidelines & Rule 65 Optical Safety. Confirmed Thyronorm 50mcg against handwritten prescription note.',
+        doctor: 'Dr. R. Kulkarni, MD (MMC-7721) • Lilavati Hospital',
+        fileName: 'Hospital_Thyroid_Rx_Scan.jpg',
+        guideline: 'Indian Thyroid Society Guidelines & Rule 65 Optical Safety. Confirmed Thyronorm 50mcg against handwritten doctor prescription.',
+        outOfRangeSummary: 'TSH 7.8 mIU/L (High / Hypothyroid) • Selenium & Zinc (Sub-optimal)',
         biomarkers: [
           {
             name: 'TSH (Thyroid Stimulating Hormone)',
@@ -1324,7 +1412,10 @@
             ref: 'Normal: 0.45–4.5 mIU/L',
             status: 'Elevated (Hypothyroid)',
             color: 'text-rose-700 bg-rose-50 border-rose-200',
-            plainEnglish: 'Elevated TSH signals an underactive thyroid. Consistent early morning empty-stomach dosing of Thyronorm 50mcg is required.'
+            plainEnglish: 'Elevated TSH signals an underactive thyroid. Consistent early morning empty-stomach dosing of Thyronorm 50mcg is required.',
+            recommendedDrug: 'Thyronorm 50mcg Tablet (Levothyroxine Sodium 50mcg)',
+            drugDosage: '1 tablet once daily first thing in morning',
+            advice: 'Must be taken on an empty stomach with a full glass of water 45 minutes before breakfast or coffee.'
           },
           {
             name: 'Thyroid Conversion Cofactors',
@@ -1332,7 +1423,10 @@
             ref: 'Clinical Need',
             status: 'Recommended',
             color: 'text-amber-800 bg-amber-50 border-amber-200',
-            plainEnglish: 'Hormone T4-to-T3 activation and hair follicle health benefit from targeted Selenium, Zinc, and Biotin cofactors.'
+            plainEnglish: 'Hormone T4-to-T3 activation and hair follicle health benefit from targeted Selenium, Zinc, and Biotin cofactors.',
+            recommendedDrug: 'Tata 1mg Thyroid Care (Selenium, Zinc & Biotin 30s)',
+            drugDosage: '1 capsule daily post lunch',
+            advice: 'Supports cellular conversion of thyroid hormones while fortifying brittle hair shafts.'
           }
         ],
         bundle30: {
@@ -1361,7 +1455,7 @@
       }
     };
 
-    // 4. Consumer Product Catalog (Consumer-facing prices only)
+    // 4. Consumer Product Catalog
     const productCatalog = [
       {
         id: 'sku_rx_glycomet',
@@ -1469,8 +1563,8 @@
       }
     ];
 
-    // 5. Inbound Pharmacist Queue Data
-    const pharmacistQueue = [
+    // 5. Inbound Pharmacist Queue
+    let pharmacistQueue = [
       {
         rxId: 'RX-2026-9041',
         patientName: 'Ramesh Chandra (54Y / M)',
@@ -1479,7 +1573,7 @@
         elapsed: '12 Mins',
         slaTarget: '15 Mins SLA',
         status: 'Approved & Stamped',
-        statusClass: 'bg-emerald-100 text-emerald-800',
+        statusClass: 'bg-emerald-100 text-emerald-800 border border-emerald-200',
         caseKey: 'diabetes'
       },
       {
@@ -1490,7 +1584,7 @@
         elapsed: '6 Mins',
         slaTarget: '15 Mins SLA',
         status: 'In Review',
-        statusClass: 'bg-amber-100 text-amber-800',
+        statusClass: 'bg-amber-100 text-amber-800 border border-amber-200',
         caseKey: 'vitamin'
       },
       {
@@ -1501,7 +1595,7 @@
         elapsed: '3 Mins',
         slaTarget: '15 Mins SLA',
         status: 'Queued (OCR Done)',
-        statusClass: 'bg-blue-100 text-blue-800',
+        statusClass: 'bg-blue-100 text-blue-800 border border-blue-200',
         caseKey: 'thyroid'
       }
     ];
@@ -1516,24 +1610,27 @@
       window.dataLayer.push(payload);
 
       // Update badge
-      document.getElementById('eventCounter').innerText = window.dataLayer.length;
+      const counter = document.getElementById('eventCounter');
+      if (counter) counter.innerText = window.dataLayer.length;
 
       // Render entry in bottom dock
       const container = document.getElementById('telemetryLogContainer');
-      const item = document.createElement('div');
-      item.className = 'p-2 rounded bg-slate-900 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2';
-      item.innerHTML = `
-        <div>
-          <span class="text-emerald-400 font-bold">[${payload.timestamp}]</span>
-          <span class="text-amber-300 font-bold ml-1.5">${payload.event}</span>
-          <span class="text-slate-300 ml-2">${JSON.stringify(params)}</span>
-        </div>
-        <span class="text-[10px] bg-slate-800 text-teal-300 px-2 py-0.5 rounded shrink-0">GA4 Ready</span>
-      `;
-      container.prepend(item);
+      if (container) {
+        const item = document.createElement('div');
+        item.className = 'p-2 rounded bg-slate-900 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2';
+        item.innerHTML = `
+          <div>
+            <span class="text-emerald-400 font-bold">[${payload.timestamp}]</span>
+            <span class="text-amber-300 font-bold ml-1.5">${payload.event}</span>
+            <span class="text-slate-300 ml-2">${JSON.stringify(params)}</span>
+          </div>
+          <span class="text-[10px] bg-slate-800 text-teal-300 px-2 py-0.5 rounded shrink-0">GA4 Ready</span>
+        `;
+        container.prepend(item);
+      }
     }
 
-    // 7. Role-Based Navigation Switcher (Storefront / Pharmacist Desk / Analytics & KPIs)
+    // 7. Role-Based Navigation Switcher
     function switchRoleView(viewName) {
       sessionState.activeView = viewName;
       const vStore = document.getElementById('view_storefront');
@@ -1544,12 +1641,10 @@
       const bPharm = document.getElementById('navBtn_pharmacist');
       const bAnaly = document.getElementById('navBtn_analytics');
 
-      // Hide all
       vStore.classList.add('hidden');
       vPharm.classList.add('hidden');
       vAnaly.classList.add('hidden');
 
-      // Reset button styles
       [bStore, bPharm, bAnaly].forEach(btn => {
         btn.className = 'px-3.5 py-1.5 rounded-lg font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition flex items-center gap-1.5';
       });
@@ -1561,6 +1656,7 @@
         vPharm.classList.remove('hidden');
         bPharm.className = 'px-3.5 py-1.5 rounded-lg font-bold bg-teal-600 text-white transition flex items-center gap-1.5 shadow-sm';
         renderPharmacistQueue();
+        updateDeskInspectionPanel(sessionState.selectedCase);
       } else if (viewName === 'analytics') {
         vAnaly.classList.remove('hidden');
         bAnaly.className = 'px-3.5 py-1.5 rounded-lg font-bold bg-amber-500 text-slate-950 transition flex items-center gap-1.5 shadow-sm';
@@ -1573,7 +1669,7 @@
       });
     }
 
-    // 8. Workflow Mode Switcher: Standard Rx (Legacy) vs Smart AI Assistant (New USP)
+    // 8. Workflow Mode Switcher
     function setWorkflowMode(mode) {
       sessionState.workflowMode = mode;
       const legacyAlert = document.getElementById('legacyWorkflowAlert');
@@ -1611,53 +1707,579 @@
 
     function scrollToAssistant() {
       switchRoleView('storefront');
-      document.getElementById('assistantHub').scrollIntoView({ behavior: 'smooth' });
+      const el = document.getElementById('assistantHub');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 9. Step 1: Real Document Upload Handler
-    function handleRealFileUpload(event) {
-      const file = event.target.files[0];
+    // =========================================================================
+    // 9. CORE UPLOAD & PDF PARSER ENGINE (RECTIFIED & MADE 100% FUNCTIONAL)
+    // =========================================================================
+    
+    function triggerFileUploadClick(event) {
+      if (event) event.stopPropagation();
+      const input = document.getElementById('realDocUpload');
+      if (input) input.click();
+    }
+
+    // Set up drag-and-drop & change listeners cleanly on dropzone
+    function setupUploadDropzone() {
+      const dropzone = document.getElementById('uploadDropzone');
+      const fileInput = document.getElementById('realDocUpload');
+
+      if (!dropzone || !fileInput) return;
+
+      // Click anywhere on dropzone to trigger file browser
+      dropzone.addEventListener('click', (e) => {
+        // Only trigger if not clicking buttons directly
+        if (!e.target.closest('button')) {
+          fileInput.click();
+        }
+      });
+
+      // Drag and drop events
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add('dropzone-active');
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove('dropzone-active');
+        }, false);
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files && files.length > 0) {
+          processUploadedFile(files[0]);
+        }
+      }, false);
+
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+          processUploadedFile(e.target.files[0]);
+        }
+      });
+    }
+
+    // Main file processor
+    async function processUploadedFile(file) {
       if (!file) return;
 
       if (!sessionState.dpdpConsent) {
-        alert('Please accept the DPDP Act 2023 Explicit Health Locker Consent before uploading clinical documents.');
+        alert('Please accept the DPDP Act 2023 Explicit Consent before uploading medical records.');
         return;
       }
 
       sessionState.uploadedFileName = file.name;
       sessionState.scansCompleted += 1;
 
-      // Display scanning animation banner
+      // Show Animated Multi-Phase Scanning Banner
       const banner = document.getElementById('uploadProgressBanner');
       banner.classList.remove('hidden');
       document.getElementById('uploadFileName').innerText = `Uploaded: ${file.name} (${Math.round(file.size / 1024)} KB)`;
-      document.getElementById('uploadFileMeta').innerText = `Parsing biomarkers & verifying dosage with licensed Rule 65 pharmacist...`;
+      document.getElementById('uploadProgressStep').innerText = `Phase 1/3: Reading Document Stream`;
+      document.getElementById('uploadFileMeta').innerText = `Executing Optical OCR & text token extraction...`;
 
       updateStepper(2);
 
-      // Simulate 1.5s OCR Scan
+      let extractedText = '';
+
+      // If it's a PDF, extract real text using PDF.js if available
+      if (file.type === 'application/pdf' && window.pdfjsLib) {
+        try {
+          const arrayBuffer = await file.arrayBuffer();
+          const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+          const pdfDoc = await loadingTask.promise;
+          const maxPages = Math.min(pdfDoc.numPages, 4);
+
+          for (let pageNum = 1; pageNum <= maxPages; pageNum++) {
+            const page = await pdfDoc.getPage(pageNum);
+            const textContent = await page.getTextContent();
+            const pageText = textContent.items.map(item => item.str).join(' ');
+            extractedText += ' ' + pageText;
+          }
+        } catch (err) {
+          console.warn('PDF.js text extraction fallback:', err);
+        }
+      }
+
+      // Phase 2 animation: Biomarker parsing
+      setTimeout(() => {
+        document.getElementById('uploadProgressStep').innerText = `Phase 2/3: Biomarker Extraction`;
+        document.getElementById('uploadFileMeta').innerText = `Detecting out-of-range clinical biomarkers & ICMR safety checks...`;
+      }, 700);
+
+      // Phase 3 animation: Pharmacist queue & profile creation
+      setTimeout(() => {
+        document.getElementById('uploadProgressStep').innerText = `Phase 3/3: Registering Patient & Triage Queue`;
+        document.getElementById('uploadFileMeta').innerText = `Generating patient profile and routing inbound Rx to Pharmacist Desk...`;
+      }, 1300);
+
+      // Finalization
       setTimeout(() => {
         banner.classList.add('hidden');
-        // If file name implies thyroid or vitamin, select appropriate, otherwise default to diabetes
-        const lower = file.name.toLowerCase();
-        let targetCase = 'diabetes';
-        if (lower.includes('thyroid') || lower.includes('tsh')) targetCase = 'thyroid';
-        else if (lower.includes('vitamin') || lower.includes('b12') || lower.includes('cbc')) targetCase = 'vitamin';
 
-        loadPresetCase(targetCase, true);
+        // Create intelligent patient profile from extracted text or filename
+        const newPatient = generatePatientProfileFromData(file, extractedText);
+        
+        // Register in session state
+        clinicalCases[newPatient.id] = newPatient;
+        sessionState.uploadedPatients[newPatient.id] = newPatient;
 
+        // Render patient name in the clinical presets area with delete option
+        renderUploadedPatientsList();
+
+        // Add inbound item to pharmacist queue
+        addInboundQueueItem(newPatient);
+
+        // Select this new patient profile immediately
+        selectUploadedPatient(newPatient.id);
+
+        // Push GA4 event
         pushDataLayerEvent('real_file_uploaded', {
           pillar: 'Pillar_1_Speed',
           file_name: file.name,
           file_size_kb: Math.round(file.size / 1024),
           mime_type: file.type,
-          matched_case_profile: targetCase,
+          patient_name: newPatient.patientName,
+          biomarkers_found: newPatient.biomarkers.length,
           scans_completed_total: sessionState.scansCompleted
         });
-      }, 1500);
+
+        // Reset input value so re-selecting same file works
+        const fileInput = document.getElementById('realDocUpload');
+        if (fileInput) fileInput.value = '';
+
+      }, 1900);
     }
 
-    // 10. Load Preset Clinical Case & Render Steps 2, 3, 4
+    // Intelligent parser to create a complete clinical patient profile
+    function generatePatientProfileFromData(file, text) {
+      const fileNameLower = file.name.toLowerCase();
+      const textLower = (text || '').toLowerCase();
+
+      // Extract or infer patient name
+      let patientName = '';
+      let age = '52Y';
+      let gender = 'Male';
+      let doctor = 'Dr. S. K. Mehta, MD (DMC-39182) • Apollo MedCity';
+
+      // 1. Try regex extraction from PDF text
+      const nameMatch = text.match(/(?:patient\s*name|name|patient|mr\.|mrs\.|ms\.)[:\s]+([A-Z][a-zA-Z\s]{2,25})/i);
+      if (nameMatch && nameMatch[1] && nameMatch[1].trim().length > 2) {
+        patientName = nameMatch[1].trim();
+      }
+
+      // 2. Fallback: Parse from filename if available
+      if (!patientName) {
+        const cleanName = file.name
+          .replace(/\.(pdf|png|jpg|jpeg)/gi, '')
+          .replace(/[-_]/g, ' ')
+          .replace(/report|prescription|lab|test|cbc|blood|thyroid|lipid/gi, '')
+          .trim();
+        if (cleanName.length > 2) {
+          // Capitalize words
+          patientName = cleanName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+        }
+      }
+
+      // 3. Fallback default realistic names
+      if (!patientName || patientName.length < 3) {
+        if (fileNameLower.includes('thyroid') || textLower.includes('tsh')) {
+          patientName = 'Pooja Deshmukh';
+          gender = 'Female';
+          age = '42Y';
+        } else if (fileNameLower.includes('vitamin') || textLower.includes('b12')) {
+          patientName = 'Anil Saxena';
+          gender = 'Male';
+          age = '47Y';
+        } else {
+          patientName = 'Sunil Verma';
+          gender = 'Male';
+          age = '52Y';
+        }
+      }
+
+      // Age/Gender extraction
+      const ageMatch = text.match(/(\d{1,2})\s*(?:Y|Yrs|Years)?\s*[\/\,\-]?\s*(Male|Female|M|F)/i);
+      if (ageMatch) {
+        age = ageMatch[1] + 'Y';
+        gender = ageMatch[2].toUpperCase().startsWith('F') ? 'Female' : 'Male';
+      }
+
+      const patientId = 'uploaded_' + Date.now();
+      const rxId = 'RX-2026-' + Math.floor(Math.random() * 900 + 9050);
+
+      // Determine Clinical Case Category based on biomarkers detected
+      let caseType = 'diabetes';
+      if (fileNameLower.includes('thyroid') || textLower.includes('tsh') || textLower.includes('thyronorm')) {
+        caseType = 'thyroid';
+      } else if (fileNameLower.includes('vitamin') || textLower.includes('b12') || textLower.includes('deficiency') || textLower.includes('ferritin')) {
+        caseType = 'vitamin';
+      }
+
+      // Construct comprehensive clinical profile with out-of-range biomarkers, recommended drugs, and advice
+      if (caseType === 'thyroid') {
+        return {
+          id: patientId,
+          patientName: `${patientName} (${age} / ${gender.charAt(0)})`,
+          cleanName: patientName,
+          age: age,
+          gender: gender,
+          rxId: rxId,
+          fileName: file.name,
+          doctor: doctor,
+          label: `Uploaded: ${patientName} (Hypothyroidism & Metabolic Panel)`,
+          healthScore: '66 / 100',
+          scoreText: 'Hormonal Imbalance',
+          scoreClass: 'bg-purple-100 text-purple-900 border border-purple-300',
+          pharmacist: 'RPh. Ananya Sharma (Reg #DL-48291)',
+          guideline: 'Indian Thyroid Society 2024 Guidelines. Rule 65 verified prescription dosage for Levothyroxine Sodium with complementary mineral cofactors.',
+          outOfRangeSummary: 'TSH 8.4 mIU/L (High / Hypothyroid) • Vitamin D3 18 ng/mL (Deficient)',
+          isUploaded: true,
+          biomarkers: [
+            {
+              name: 'TSH (Thyroid Stimulating Hormone)',
+              value: '8.4 mIU/L',
+              ref: 'Normal: 0.45–4.5 mIU/L',
+              status: 'Elevated &bull; Out of Range',
+              color: 'text-rose-700 bg-rose-50 border-rose-200',
+              plainEnglish: 'Your pituitary gland is producing excess TSH because your thyroid is producing insufficient thyroid hormone, resulting in slowed metabolism, sluggishness, and fatigue.',
+              recommendedDrug: 'Thyronorm 50mcg Tablet (Levothyroxine Sodium 50mcg)',
+              drugDosage: '1 tablet once daily early morning on empty stomach',
+              advice: 'Take 45 minutes before breakfast with plain water. Avoid taking iron, calcium, or coffee within 2 hours of this medication.'
+            },
+            {
+              name: 'Serum Vitamin D3 (25-OH)',
+              value: '18.2 ng/mL',
+              ref: 'Sufficient: 30–100 ng/mL',
+              status: 'Deficient &bull; Out of Range',
+              color: 'text-amber-800 bg-amber-50 border-amber-200',
+              plainEnglish: 'Low Vitamin D impairs thyroid autoantibody regulation and contributes to generalized bone weakness and muscular fatigue.',
+              recommendedDrug: 'Tata 1mg Vitamin D3 + K2 Softgels (60,000 IU)',
+              drugDosage: '1 softgel once weekly for 8 weeks',
+              advice: 'Take with a fat-rich meal (e.g. lunch or milk) for optimal bioavailability.'
+            }
+          ],
+          bundle30: {
+            price: 749,
+            mrp: 940,
+            profit: 335,
+            marginPct: 45,
+            savings: 191,
+            items: [
+              { tier: 'Tier 1: Prescribed Rx (Pharmacist Verified)', name: 'Thyronorm 50mcg Tablet (Bottle of 120)', price: 220, mrp: 245 },
+              { tier: 'Tier 2: Recommended Daily Vitamins (FSSAI)', name: 'Tata 1mg Thyroid Care (Selenium, Zinc & Vitamin D3 30s)', price: 529, mrp: 695 }
+            ]
+          },
+          bundle90: {
+            price: 1790,
+            mrp: 2280,
+            profit: 859,
+            marginPct: 48,
+            savings: 490,
+            items: [
+              { tier: 'Tier 1: Prescribed Rx (Schedule H, 90-Day Refill)', name: 'Thyronorm 50mcg + Smart Pill Dispenser Box', price: 440, mrp: 490 },
+              { tier: 'Tier 2: Recommended Daily Vitamins (FSSAI)', name: 'Tata 1mg Selenium, Zinc & Active Vitamin D3 (90 Days)', price: 990, mrp: 1290 },
+              { tier: 'Tier 3: Scheduled Preventive Follow-Up Lab', name: 'Day-90 Comprehensive Thyroid Profile (T3, T4, TSH) Home Test', price: 360, mrp: 500 }
+            ]
+          }
+        };
+      } else if (caseType === 'vitamin') {
+        return {
+          id: patientId,
+          patientName: `${patientName} (${age} / ${gender.charAt(0)})`,
+          cleanName: patientName,
+          age: age,
+          gender: gender,
+          rxId: rxId,
+          fileName: file.name,
+          doctor: doctor,
+          label: `Uploaded: ${patientName} (Fatigue & Micronutrient Deficiency)`,
+          healthScore: '69 / 100',
+          scoreText: 'Nutritional Deficiency',
+          scoreClass: 'bg-amber-100 text-amber-900 border border-amber-300',
+          pharmacist: 'RPh. Ananya Sharma (Reg #DL-48291)',
+          guideline: 'NIN / ICMR RDA Reference Standards. Rule 65 verified therapeutic dosage of sublingual methylcobalamin and cholecalciferol.',
+          outOfRangeSummary: 'Vit B12 138 pg/mL (Deficient) • Vit D3 12 ng/mL (Severely Low) • Ferritin 17 ng/mL (Low)',
+          isUploaded: true,
+          biomarkers: [
+            {
+              name: 'Vitamin B12 (Active Methylcobalamin)',
+              value: '138 pg/mL',
+              ref: 'Normal: 211–911 pg/mL',
+              status: 'Deficient &bull; Out of Range',
+              color: 'text-rose-700 bg-rose-50 border-rose-200',
+              plainEnglish: 'Severe B12 depletion is causing lethargy, cognitive brain fog, and mild tingling sensations in hands and feet due to impaired nerve myelination.',
+              recommendedDrug: 'Tata 1mg Vitamin B12 + Folate + Iron Strips',
+              drugDosage: '1 strip sublingually once daily post lunch',
+              advice: 'Let strip dissolve under the tongue for rapid oral mucosa absorption, avoiding gastrointestinal degradation.'
+            },
+            {
+              name: 'Vitamin D3 (25-Hydroxy)',
+              value: '12.0 ng/mL',
+              ref: 'Sufficient: 30–100 ng/mL',
+              status: 'Severely Low &bull; Out of Range',
+              color: 'text-rose-700 bg-rose-50 border-rose-200',
+              plainEnglish: 'Severe vitamin D deficiency impairs calcium metabolism, resulting in chronic morning stiffness, low stamina, and reduced immune resilience.',
+              recommendedDrug: 'Tata 1mg Vitamin D3 + K2 Softgels (60,000 IU)',
+              drugDosage: '1 softgel once weekly for 8 weeks',
+              advice: 'Take after your main meal containing dietary fats. Retest in 90 days to verify tissue saturation.'
+            }
+          ],
+          bundle30: {
+            price: 890,
+            mrp: 1140,
+            profit: 516,
+            marginPct: 58,
+            savings: 250,
+            items: [
+              { tier: 'Tier 2: Recommended Daily Vitamins (FSSAI)', name: 'Tata 1mg Vitamin B12 + Folate + Gentle Iron (30 Days)', price: 399, mrp: 549 },
+              { tier: 'Tier 2: Recommended Daily Vitamins (FSSAI)', name: 'Tata 1mg Vitamin D3 + K2 Softgels (30 Days)', price: 491, mrp: 591 }
+            ]
+          },
+          bundle90: {
+            price: 2190,
+            mrp: 2830,
+            profit: 1314,
+            marginPct: 60,
+            savings: 640,
+            items: [
+              { tier: 'Tier 2: Recommended Daily Vitamins (FSSAI)', name: '3-Month Vitamin D3 + B12 + Gentle Iron Cellular Regimen', price: 1690, mrp: 2130 },
+              { tier: 'Tier 3: Scheduled Preventive Follow-Up Lab', name: 'Day-90 Vitamin D3 & B12 Home Re-Test (Included)', price: 500, mrp: 700 }
+            ]
+          }
+        };
+      } else {
+        // Default: Diabetes & Dyslipidemia (most common metabolic profile)
+        return {
+          id: patientId,
+          patientName: `${patientName} (${age} / ${gender.charAt(0)})`,
+          cleanName: patientName,
+          age: age,
+          gender: gender,
+          rxId: rxId,
+          fileName: file.name,
+          doctor: doctor,
+          label: `Uploaded: ${patientName} (Type-2 Diabetes & Dyslipidemia Report)`,
+          healthScore: '59 / 100',
+          scoreText: 'Clinical Action Needed',
+          scoreClass: 'bg-rose-100 text-rose-900 border border-rose-300',
+          pharmacist: 'RPh. Ananya Sharma (Reg #DL-48291)',
+          guideline: 'ICMR 2024 Guidelines for Type-2 Diabetes & Dyslipidemia. Schedule H dual therapy verified against Rule 65 dispensing protocols.',
+          outOfRangeSummary: 'HbA1c 8.6% (High) • LDL 174 mg/dL (Elevated) • Fasting Glucose 168 mg/dL',
+          isUploaded: true,
+          biomarkers: [
+            {
+              name: 'HbA1c (Glycated Hemoglobin)',
+              value: '8.6%',
+              ref: 'Normal: < 5.7%',
+              status: 'Elevated &bull; Out of Range',
+              color: 'text-rose-700 bg-rose-50 border-rose-200',
+              plainEnglish: 'Your average blood glucose level over the past 90 days is markedly elevated above clinical safety targets, placing microvascular strain on retinal and renal systems.',
+              recommendedDrug: 'Glycomet-GP 2 Tablet PR (Glimepiride 2mg + Metformin 500mg PR)',
+              drugDosage: '1 tablet once daily immediately after breakfast',
+              advice: 'Take with breakfast to minimize GI distress. Limit refined carbohydrates, maintain a 30-minute daily walking routine, and schedule repeat HbA1c in 90 days.'
+            },
+            {
+              name: 'LDL Cholesterol ("Bad" Lipids)',
+              value: '174 mg/dL',
+              ref: 'Optimal: < 100 mg/dL',
+              status: 'Elevated &bull; Out of Range',
+              color: 'text-rose-700 bg-rose-50 border-rose-200',
+              plainEnglish: 'Elevated bad cholesterol accelerates lipid deposition within arterial walls, elevating long-term cardiovascular risks.',
+              recommendedDrug: 'Atorva 20mg Tablet (Atorvastatin 20mg)',
+              drugDosage: '1 tablet once daily at bedtime',
+              advice: 'Take at night when hepatic HMG-CoA reductase is most active. Pair with daily omega-3 fatty acids and soluble dietary fiber.'
+            },
+            {
+              name: 'Fasting Blood Sugar (FBS)',
+              value: '168 mg/dL',
+              ref: 'Normal: 70–99 mg/dL',
+              status: 'Elevated &bull; Out of Range',
+              color: 'text-amber-800 bg-amber-50 border-amber-200',
+              plainEnglish: 'High morning fasting glucose indicates overnight hepatic glucose release and peripheral insulin resistance.',
+              recommendedDrug: 'Prescription Metformin 500mg PR Component',
+              drugDosage: 'Maintained via Glycomet-GP 2 dual release formulation',
+              advice: 'Avoid late-night carbohydrate-heavy dinners. Maintain an 11-12 hour overnight fasting window.'
+            }
+          ],
+          bundle30: {
+            price: 1180,
+            mrp: 1460,
+            profit: 472,
+            marginPct: 40,
+            savings: 280,
+            items: [
+              { tier: 'Tier 1: Prescribed Rx (Pharmacist Verified)', name: 'Glycomet-GP 2 (Strip of 15 x 2) + Atorva 20mg (15s x 2)', price: 420, mrp: 490 },
+              { tier: 'Tier 2: Recommended Daily Vitamins (FSSAI)', name: 'Tata 1mg Vitamin D3 + K2 & Triple Strength Omega-3 (30 Days)', price: 760, mrp: 970 }
+            ]
+          },
+          bundle90: {
+            price: 2640,
+            mrp: 3220,
+            profit: 1135,
+            marginPct: 43,
+            savings: 580,
+            items: [
+              { tier: 'Tier 1: Prescribed Rx (Schedule H, 90-Day Refill)', name: 'Glycomet-GP 2 + Atorva 20mg (3-Month Stock Refill)', price: 1140, mrp: 1470 },
+              { tier: 'Tier 2: Recommended Daily Vitamins (FSSAI)', name: 'Tata 1mg Vitamin D3 + K2 & Omega-3 (90-Day Supply)', price: 1050, mrp: 1350 },
+              { tier: 'Tier 3: Scheduled Preventive Follow-Up Lab', name: 'Day-90 Glycemic & Lipid Home Re-Test (Included)', price: 450, mrp: 400 }
+            ]
+          }
+        };
+      }
+    }
+
+    // 1-Click Simulated Lab Report PDF loader
+    function loadSimulatedTestPdf(event) {
+      if (event) event.stopPropagation();
+      // Create mock File object
+      const simulatedFile = new File(
+        ["Tata 1mg CarePath Clinical Report Simulation\nPatient Name: Sunil Verma\nAge: 52Y Male\nHbA1c: 8.6%\nLDL: 174 mg/dL\nFBS: 168 mg/dL\nDoctor: Dr. S. K. Mehta DMC-39182"],
+        "Sunil_Verma_CBC_Lipid_Profile.pdf",
+        { type: "application/pdf" }
+      );
+      processUploadedFile(simulatedFile);
+    }
+
+    // =========================================================================
+    // 10. PRESET AREA: DYNAMIC UPLOADED PATIENTS LIST WITH DELETE OPTION
+    // =========================================================================
+    
+    function renderUploadedPatientsList() {
+      const container = document.getElementById('uploadedPatientsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const uploadedIds = Object.keys(sessionState.uploadedPatients);
+      const badge = document.getElementById('presetCountBadge');
+      if (badge) {
+        badge.innerText = `${3 + uploadedIds.length} Profiles Available`;
+      }
+
+      if (uploadedIds.length === 0) return;
+
+      uploadedIds.forEach(id => {
+        const patient = sessionState.uploadedPatients[id];
+        const isSelected = sessionState.selectedCase === id;
+
+        const card = document.createElement('div');
+        card.id = `uploadedPatientCard_${id}`;
+        card.className = `p-3.5 rounded-xl border-2 transition flex items-center justify-between gap-3 shadow-sm ${
+          isSelected ? 'border-teal-600 bg-teal-50/80 shadow-md ring-2 ring-teal-500/20' : 'border-teal-500/50 bg-white hover:bg-slate-50'
+        }`;
+
+        card.innerHTML = `
+          <div onclick="selectUploadedPatient('${id}')" class="flex-1 cursor-pointer">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="inline-flex items-center text-[10px] font-bold bg-teal-600 text-white px-2 py-0.5 rounded-full">
+                <i class="fa-solid fa-file-pdf mr-1 text-[9px]"></i> Uploaded Patient Report
+              </span>
+              <span class="text-[10px] text-teal-800 font-semibold bg-teal-100/80 px-2 py-0.2 rounded font-mono">
+                ${patient.fileName}
+              </span>
+              <span class="text-[10px] text-slate-500">
+                &bull; Just now
+              </span>
+            </div>
+            <h5 class="text-xs font-black text-slate-900 flex items-center gap-1.5">
+              <i class="fa-solid fa-user-circle text-teal-600 text-sm"></i>
+              ${patient.patientName}
+            </h5>
+            <p class="text-[11px] text-slate-600 mt-0.5">
+              <strong class="text-rose-700">Out of Range:</strong> ${patient.outOfRangeSummary}
+            </p>
+          </div>
+          
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="selectUploadedPatient('${id}')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 ${
+              isSelected ? 'bg-teal-700 text-white' : 'bg-slate-100 hover:bg-teal-600 hover:text-white text-slate-700'
+            }">
+              <span>${isSelected ? 'Active' : 'Select'}</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <button onclick="deleteUploadedPatient('${id}', event)" title="Delete uploaded patient report" class="p-2 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-transparent hover:border-rose-200 transition">
+              <i class="fa-solid fa-trash-can text-sm"></i>
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Select uploaded patient
+    function selectUploadedPatient(patientId) {
+      loadPresetCase(patientId);
+      renderUploadedPatientsList();
+    }
+
+    // Delete uploaded patient
+    function deleteUploadedPatient(patientId, event) {
+      if (event) event.stopPropagation();
+
+      const patient = sessionState.uploadedPatients[patientId];
+      const patientName = patient ? patient.cleanName || patient.patientName : 'Uploaded Patient';
+
+      // Cleanly remove from state
+      delete sessionState.uploadedPatients[patientId];
+      delete clinicalCases[patientId];
+
+      // Remove from pharmacist queue
+      pharmacistQueue = pharmacistQueue.filter(q => q.caseKey !== patientId);
+      renderPharmacistQueue();
+
+      // If active case was deleted, smoothly fallback to diabetes
+      if (sessionState.selectedCase === patientId) {
+        loadPresetCase('diabetes');
+      }
+
+      renderUploadedPatientsList();
+
+      pushDataLayerEvent('patient_profile_deleted', {
+        pillar: 'Pillar_1_Speed',
+        patient_id: patientId,
+        remaining_uploaded: Object.keys(sessionState.uploadedPatients).length
+      });
+    }
+
+    // Add Inbound Queue Item for Pharmacist Desk
+    function addInboundQueueItem(patient) {
+      const newItem = {
+        rxId: patient.rxId,
+        patientName: patient.patientName,
+        fileName: patient.fileName,
+        doctor: patient.doctor,
+        elapsed: '1 Min',
+        slaTarget: '15 Mins SLA',
+        status: 'In Review (OCR Done)',
+        statusClass: 'bg-amber-100 text-amber-800 border border-amber-300 font-bold',
+        caseKey: patient.id,
+        isUploaded: true
+      };
+
+      // Add to front of queue
+      pharmacistQueue.unshift(newItem);
+      renderPharmacistQueue();
+
+      // Update badge in top bar
+      const badge = document.getElementById('pendingRxBadge');
+      if (badge) {
+        const pendingCount = pharmacistQueue.filter(q => !q.status.includes('Approved')).length;
+        badge.innerText = pendingCount;
+      }
+    }
+
+    // =========================================================================
+    // 11. LOAD PRESET / PATIENT CASE & RENDER STEPS 2, 3, 4
+    // =========================================================================
     function loadPresetCase(caseKey, fromUpload = false) {
       if (!sessionState.dpdpConsent) {
         alert('Please check the DPDP Act 2023 Explicit Consent box before proceeding.');
@@ -1665,10 +2287,10 @@
       }
 
       sessionState.selectedCase = caseKey;
-      if (!fromUpload) sessionState.scansCompleted += 1;
       const data = clinicalCases[caseKey];
+      if (!data) return;
 
-      // Update preset chip highlights
+      // Update preset chips visual highlight
       document.querySelectorAll('.preset-chip').forEach(c => {
         c.classList.remove('border-teal-600', 'bg-teal-50/50');
         c.classList.add('border-slate-200', 'bg-white');
@@ -1685,28 +2307,64 @@
       scoreBadge.className = `text-xs font-extrabold px-3 py-1 rounded-full ${data.scoreClass}`;
       document.getElementById('clinicalCitationText').innerText = data.guideline;
 
-      // Render Step 2: Biomarkers
+      // STEP 2: Render Out-of-Range Biomarkers with Plain-English, Recommended Drug, and Advice
       const bioList = document.getElementById('biomarkerCardsList');
       bioList.innerHTML = '';
+
+      document.getElementById('step2HeaderTitle').innerText = `${data.patientName || 'Patient'} — Lab Biomarkers Explained`;
+
       data.biomarkers.forEach(b => {
         const card = document.createElement('div');
-        card.className = `p-3 rounded-xl border ${b.color}`;
+        card.className = `p-4 rounded-xl border ${b.color} space-y-2.5`;
         card.innerHTML = `
-          <div class="flex items-center justify-between text-xs font-extrabold">
-            <span>${b.name}: ${b.value}</span>
-            <span class="text-[10px] uppercase px-2 py-0.5 rounded bg-white/90 border border-current">${b.status} (${b.ref})</span>
+          <!-- Biomarker Header: Name, Value, Reference, Status -->
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h4 class="font-extrabold text-xs sm:text-sm text-slate-900">${b.name}</h4>
+              <span class="text-[11px] font-mono text-slate-600">Measured: <strong class="text-slate-900">${b.value}</strong> &bull; (${b.ref})</span>
+            </div>
+            <span class="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded bg-white/90 border border-current shrink-0">
+              ${b.status}
+            </span>
           </div>
-          <p class="text-[11px] text-slate-700 mt-1 leading-relaxed">${b.plainEnglish}</p>
+
+          <!-- Plain-English Translation -->
+          <div class="bg-white/80 p-2.5 rounded-lg border border-slate-200/60 text-xs text-slate-700 leading-relaxed">
+            <strong class="text-slate-900 block mb-0.5 flex items-center gap-1">
+              <i class="fa-solid fa-comment-medical text-teal-600"></i> What this means in Plain English:
+            </strong>
+            ${b.plainEnglish}
+          </div>
+
+          <!-- Recommended Drug & Dosage -->
+          <div class="bg-teal-50/90 p-2.5 rounded-lg border border-teal-200 text-xs text-teal-950">
+            <strong class="text-teal-900 block mb-0.5 flex items-center gap-1">
+              <i class="fa-solid fa-prescription-bottle-medical text-teal-700"></i> Recommended Drug &amp; Dosage:
+            </strong>
+            <span class="font-bold text-slate-900">${b.recommendedDrug}</span>
+            <div class="text-[11px] text-teal-800 mt-0.5 font-medium">&bull; Dosing: ${b.drugDosage}</div>
+          </div>
+
+          <!-- Clinical & Lifestyle Advice -->
+          <div class="bg-amber-50/90 p-2.5 rounded-lg border border-amber-200 text-xs text-amber-950">
+            <strong class="text-amber-900 block mb-0.5 flex items-center gap-1">
+              <i class="fa-solid fa-user-doctor text-amber-700"></i> Doctor &amp; Pharmacist Advice:
+            </strong>
+            <p class="leading-relaxed text-[11px]">${b.advice}</p>
+          </div>
         `;
         bioList.appendChild(card);
       });
 
-      // Update Step 3: Realistic 10-15 Min SLA Banner
+      // Update Step 3 Banner & Reviewer
       document.getElementById('slaBadgeTitle').innerHTML = `AI Parsed in 8s &bull; Express Pharmacist Verification (10–15 Min SLA)`;
       document.getElementById('slaReviewerSubtext').innerHTML = `Assigned to <strong>${data.pharmacist}</strong> &bull; LASA Drug Safety Check Passed &bull; 73% Faster than 45-Min Call Queue`;
 
-      // Render Step 4: Care Bundle
+      // Update Step 4: Care Bundle
       renderCareBundleDisplay();
+
+      // Update Pharmacist Desk Inspection details
+      updateDeskInspectionPanel(caseKey);
 
       // Reveal Results Workspace
       document.getElementById('assistantResultsWorkspace').classList.remove('hidden');
@@ -1716,16 +2374,17 @@
       pushDataLayerEvent('smart_document_parsed', {
         pillar: 'Pillar_1_and_2',
         case_id: caseKey,
+        patient_name: data.patientName,
         pharmacist_sla_minutes: 12,
-        health_score: data.healthScore,
-        measure_scans_total: sessionState.scansCompleted
+        health_score: data.healthScore
       });
     }
 
-    // 11. Stepper Visual State Updater
+    // 12. Stepper Visual State Updater
     function updateStepper(stepNumber) {
       for (let i = 1; i <= 4; i++) {
         const el = document.getElementById('stepper' + i);
+        if (!el) continue;
         if (i < stepNumber) {
           el.className = 'step-done p-2 rounded-lg border flex items-center gap-2 transition';
           el.querySelector('span').innerHTML = '<i class="fa-solid fa-check text-[10px]"></i>';
@@ -1742,7 +2401,7 @@
       }
     }
 
-    // 12. Care Bundle Duration Toggle & Display
+    // 13. Care Bundle Duration Toggle & Display
     function setBundleDuration(days) {
       sessionState.bundleDuration = days;
       const b30 = document.getElementById('planToggle30');
@@ -1767,7 +2426,10 @@
 
     function renderCareBundleDisplay() {
       const data = clinicalCases[sessionState.selectedCase];
+      if (!data) return;
       const bundle = sessionState.bundleDuration === 90 ? data.bundle90 : data.bundle30;
+
+      document.getElementById('bundleTitle').innerText = `${data.patientName || 'Patient'} — Complete Care Regimen`;
 
       const list = document.getElementById('bundleItemsList');
       list.innerHTML = '';
@@ -1793,15 +2455,16 @@
       document.getElementById('addBundleBtnText').innerText = `Add ${sessionState.bundleDuration}-Day Complete Care Bundle to Cart (₹${bundle.price})`;
     }
 
-    // 13. Add Care Bundle to Cart
+    // 14. Add Care Bundle to Basket
     function addSmartBundleToCart() {
       const data = clinicalCases[sessionState.selectedCase];
+      if (!data) return;
       const bundle = sessionState.bundleDuration === 90 ? data.bundle90 : data.bundle30;
 
       sessionState.bundlesAdded += 1;
       const cartItem = {
         id: `bundle_${sessionState.selectedCase}_${sessionState.bundleDuration}d`,
-        name: `${data.label.split('(')[0]} (${sessionState.bundleDuration}-Day Complete Care Plan)`,
+        name: `${data.patientName || data.label} (${sessionState.bundleDuration}-Day Complete Care Plan)`,
         price: bundle.price,
         mrp: bundle.mrp,
         profit: bundle.profit,
@@ -1809,7 +2472,12 @@
         badge: `${sessionState.bundleDuration}-Day Auto-Refill`
       };
 
-      sessionState.cart.push(cartItem);
+      // Check if already in cart
+      const existingIdx = sessionState.cart.findIndex(i => i.id === cartItem.id);
+      if (existingIdx === -1) {
+        sessionState.cart.push(cartItem);
+      }
+
       updateCartDrawer();
       toggleCartDrawer(true);
 
@@ -1823,14 +2491,14 @@
       });
     }
 
-    // 14. Add Individual Store SKU to Cart
+    // 15. Add Single SKU to Cart
     function addSingleSkuToCart(prodId) {
       const prod = productCatalog.find(p => p.id === prodId);
       if (!prod) return;
 
       const profit = Math.round(prod.price * prod.marginPct);
       sessionState.cart.push({
-        id: prod.id,
+        id: prod.id + '_' + Date.now(),
         name: prod.name,
         price: prod.price,
         mrp: prod.mrp,
@@ -1854,7 +2522,7 @@
       updateCartDrawer();
     }
 
-    // 15. Update Cart Drawer UI
+    // 16. Update Cart Drawer UI
     function updateCartDrawer() {
       document.getElementById('cartCountBadge').innerText = sessionState.cart.length;
       const container = document.getElementById('cartDrawerItemsList');
@@ -1864,7 +2532,7 @@
         container.innerHTML = `
           <div class="text-center py-16 text-slate-400 text-xs">
             <i class="fa-solid fa-basket-shopping text-3xl mb-2 block text-slate-300"></i>
-            Your care cart is currently empty.<br>Upload a prescription or add wellness products to proceed.
+            Your care cart is currently empty.<br>Upload a lab report or approve a prescription to proceed.
           </div>
         `;
       } else {
@@ -1909,7 +2577,7 @@
       }
     }
 
-    // 16. Complete Checkout Simulation
+    // 17. Complete Checkout Simulation
     function handleCompleteCheckout() {
       if (sessionState.cart.length === 0) {
         alert('Please add products or a Care Bundle before testing checkout.');
@@ -1927,30 +2595,39 @@
         has_90d_auto_refill: sessionState.cart.some(i => i.id.includes('90d'))
       });
 
-      alert(`Order Confirmed! Total Paid: ₹${totalRev}. Switch to the "Analytics & KPIs" tab or open the DataLayer drawer to inspect the real-time business metrics.`);
+      alert(`Order Confirmed! Total Paid: ₹${totalRev}. Switch to the "Analytics & KPIs" tab or open the DataLayer drawer to inspect the live metrics.`);
       toggleCartDrawer(false);
       switchRoleView('analytics');
     }
 
-    // 17. Pharmacist Console Functions (Rule 65)
+    // =========================================================================
+    // 18. PHARMACIST DESK TERMINAL (STEP 3 & APPROVAL TO BASKET LOGIC)
+    // =========================================================================
+    
     function renderPharmacistQueue() {
       const tbody = document.getElementById('pharmacistQueueTbody');
+      if (!tbody) return;
       tbody.innerHTML = '';
 
       pharmacistQueue.forEach(item => {
+        const isCurrent = sessionState.selectedCase === item.caseKey;
         const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-50 transition border-b border-slate-100 cursor-pointer';
+        tr.className = `hover:bg-slate-50 transition border-b border-slate-100 cursor-pointer ${isCurrent ? 'bg-teal-50/60 font-semibold' : ''}`;
         tr.onclick = () => selectQueueItemForReview(item.caseKey);
+        
         tr.innerHTML = `
           <td class="p-3 font-mono font-bold text-teal-800">${item.rxId}</td>
-          <td class="p-3 font-semibold text-slate-800">${item.patientName}</td>
+          <td class="p-3 text-slate-800">
+            <span class="font-bold">${item.patientName}</span>
+            ${item.isUploaded ? '<span class="ml-1 text-[9px] bg-teal-600 text-white px-1.5 py-0.2 rounded font-bold">New Upload</span>' : ''}
+          </td>
           <td class="p-3 text-slate-600"><i class="fa-solid fa-file-pdf text-rose-500 mr-1"></i>${item.fileName}</td>
           <td class="p-3 text-slate-600">${item.doctor}</td>
           <td class="p-3 font-mono text-slate-700">${item.elapsed} <span class="text-emerald-700 font-bold">(${item.slaTarget})</span></td>
           <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${item.statusClass}">${item.status}</span></td>
           <td class="p-3">
-            <button onclick="selectQueueItemForReview('${item.caseKey}'); event.stopPropagation();" class="text-teal-700 hover:text-teal-800 font-bold text-[11px] hover:underline">
-              Review &amp; Stamp &rarr;
+            <button onclick="selectQueueItemForReview('${item.caseKey}'); event.stopPropagation();" class="text-teal-700 hover:text-teal-800 font-bold text-[11px] hover:underline flex items-center gap-1">
+              <span>Review &amp; Stamp</span> &rarr;
             </button>
           </td>
         `;
@@ -1960,35 +2637,138 @@
 
     function selectQueueItemForReview(caseKey) {
       loadPresetCase(caseKey);
-      document.getElementById('deskDocMeta').innerText = clinicalCases[caseKey].label;
+      updateDeskInspectionPanel(caseKey);
     }
 
+    // Update inspection panel for active case
+    function updateDeskInspectionPanel(caseKey) {
+      const data = clinicalCases[caseKey];
+      if (!data) return;
+
+      document.getElementById('deskDocMeta').innerText = data.label || `Prescription: ${data.patientName}`;
+      document.getElementById('deskDoctorHeader').innerHTML = `<strong>${data.doctor || 'Registered Practitioner'}</strong>`;
+      document.getElementById('deskPatientHeader').innerText = `${data.patientName || 'Patient'} • Date: 26-Oct-2026`;
+      document.getElementById('deskDiagnosisHeader').innerText = data.outOfRangeSummary || 'Out of Range Biomarkers Detected';
+
+      // Update extracted Rx items
+      const rxContainer = document.getElementById('deskExtractedRxItems');
+      if (rxContainer) {
+        rxContainer.innerHTML = '';
+        const tier1Items = (data.bundle90 && data.bundle90.items) ? data.bundle90.items.filter(i => i.tier.includes('Tier 1')) : [];
+        if (tier1Items.length > 0) {
+          tier1Items.forEach((it, idx) => {
+            const div = document.createElement('div');
+            div.innerText = `${idx + 1}. ${it.name} - Verified Dosage`;
+            rxContainer.appendChild(div);
+          });
+        } else {
+          rxContainer.innerHTML = `<div>1. Prescribed Schedule H Active Therapy (Rule 65 Stamped)</div>`;
+        }
+      }
+
+      // Update extracted Lab findings
+      const labContainer = document.getElementById('deskExtractedLabFindings');
+      if (labContainer) {
+        labContainer.innerHTML = '';
+        data.biomarkers.forEach(b => {
+          const div = document.createElement('div');
+          div.innerHTML = `&bull; ${b.name}: <strong>${b.value}</strong> (${b.ref}) &mdash; <span class="text-rose-700 font-bold">${b.status}</span>`;
+          labContainer.appendChild(div);
+        });
+      }
+
+      // Update Pharmacist Note textarea
+      const noteBox = document.getElementById('deskPharmacistNote');
+      if (noteBox) {
+        noteBox.value = `Verified doctor's credential for patient ${data.patientName}. Out-of-range biomarkers confirmed (${data.outOfRangeSummary}). Recommended care bundle verified under Rule 65 of Drugs and Cosmetics Act.`;
+      }
+
+      // Update button state depending on whether queue item is already approved
+      const queueItem = pharmacistQueue.find(q => q.caseKey === caseKey);
+      const isApproved = queueItem && queueItem.status.includes('Approved');
+      const stampBtn = document.getElementById('btnApproveStamp');
+      const stampStatus = document.getElementById('deskStampStatus');
+
+      if (isApproved) {
+        stampStatus.innerText = 'Digitally Stamped & Approved';
+        stampStatus.className = 'bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full';
+        stampBtn.innerHTML = '<i class="fa-solid fa-check-double"></i> <span>Prescription Approved &amp; Care Bundle Added to Basket</span>';
+        stampBtn.className = 'w-full bg-emerald-700 text-white font-extrabold py-3 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-default';
+      } else {
+        stampStatus.innerText = 'Pending Review';
+        stampStatus.className = 'bg-amber-100 text-amber-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full';
+        stampBtn.innerHTML = '<i class="fa-solid fa-stamp"></i> <span>Approve &amp; Digitally Stamp Rx (Rule 65 Cleared)</span>';
+        stampBtn.className = 'w-full bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-3 px-4 rounded-xl text-xs shadow-md transition flex items-center justify-center gap-2 cursor-pointer';
+      }
+    }
+
+    // EXECUTE PHARMACIST APPROVAL & AUTO-UPDATE BASKET (STEP 4)
     function executePharmacistApproval() {
+      const activeCaseKey = sessionState.selectedCase;
+      const data = clinicalCases[activeCaseKey];
+      if (!data) return;
+
       sessionState.pharmacistApproved = true;
+
+      // Update queue item
+      const queueItem = pharmacistQueue.find(q => q.caseKey === activeCaseKey);
+      if (queueItem) {
+        queueItem.status = 'Approved & Stamped';
+        queueItem.statusClass = 'bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold';
+      }
+      renderPharmacistQueue();
+
+      // Update desk inspection UI
       document.getElementById('deskStampStatus').innerText = 'Approved & Digitally Stamped';
       document.getElementById('deskStampStatus').className = 'bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full';
       
       const btn = document.getElementById('btnApproveStamp');
-      btn.innerHTML = '<i class="fa-solid fa-check-double"></i> <span>Digitally Stamped &amp; Rule 65 Cleared</span>';
+      btn.innerHTML = '<i class="fa-solid fa-check-double"></i> <span>Prescription Approved &amp; Care Bundle Added to Basket</span>';
       btn.className = 'w-full bg-emerald-700 text-white font-extrabold py-3 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-default';
 
-      // Update customer storefront SLA badge
+      // Update storefront SLA badge
       document.getElementById('slaStatusBadge').innerText = 'Pharmacist Approved & Rule 65 Stamped';
       document.getElementById('slaStatusBadge').className = 'bg-emerald-300 text-emerald-950 text-[10px] font-black px-2 py-0.5 rounded-full';
 
+      // CRITICAL STEP: AUTO-UPDATE BASKET / CART WITH THIS PATIENT'S CARE BUNDLE
+      const bundle = sessionState.bundleDuration === 90 ? data.bundle90 : data.bundle30;
+      const bundleCartItem = {
+        id: `bundle_${activeCaseKey}_${sessionState.bundleDuration}d`,
+        name: `${data.patientName || data.label} (${sessionState.bundleDuration}-Day Complete Care Plan)`,
+        price: bundle.price,
+        mrp: bundle.mrp,
+        profit: bundle.profit,
+        marginPct: bundle.marginPct / 100,
+        badge: `Rule 65 Approved Bundle`
+      };
+
+      // Add to cart if not present
+      const existingIdx = sessionState.cart.findIndex(i => i.id === bundleCartItem.id);
+      if (existingIdx === -1) {
+        sessionState.cart.push(bundleCartItem);
+        sessionState.bundlesAdded += 1;
+      }
+      updateCartDrawer();
+
+      // Push Telemetry
       pushDataLayerEvent('pharmacist_rx_approved', {
         pillar: 'Pillar_1_Speed',
         pharmacist_name: 'RPh. Ananya Sharma',
         pharmacist_reg: 'DL-48291',
         rule_65_cleared: true,
-        verification_time_minutes: 12,
-        notes: document.getElementById('deskPharmacistNote').value
+        patient_case: activeCaseKey,
+        bundle_auto_added: true,
+        cart_total_inr: bundle.price
       });
 
-      alert('Prescription successfully validated and digitally signed under Rule 65 of Drugs and Cosmetics Act. Patient storefront status updated to Approved.');
+      // Show confirmation alert with clear action options
+      alert(`Prescription for ${data.patientName} has been APPROVED & DIGITALLY STAMPED under Rule 65!\n\nThe matched ${sessionState.bundleDuration}-Day Care Bundle (prescribed medications, daily vitamins, and follow-up test) has been automatically added to your basket.`);
+      
+      // Open cart drawer so user sees updated basket
+      toggleCartDrawer(true);
     }
 
-    // 18. Analytics Scoreboard Real-Time Updating
+    // 19. Analytics Scoreboard Real-Time Updating
     function updateAnalyticsCounters() {
       const totalRev = sessionState.cart.reduce((sum, i) => sum + i.price, 0);
       const totalProfit = sessionState.cart.reduce((sum, i) => sum + i.profit, 0);
@@ -2007,9 +2787,10 @@
       document.getElementById('deskCartProfit').innerText = `₹${totalProfit} (${marginPct}%)`;
     }
 
-    // 19. Render Consumer Catalog (Clean B2C Storefront Cards)
+    // 20. Render Consumer Catalog
     function renderConsumerCatalog(category = 'All', search = '') {
       const grid = document.getElementById('consumerProductGrid');
+      if (!grid) return;
       grid.innerHTML = '';
 
       const filtered = productCatalog.filter(p => {
@@ -2070,11 +2851,26 @@
       document.getElementById('telemetryLogContainer').innerHTML = '';
     }
 
-    // 20. Initialization
+    // 21. Initialization
     window.addEventListener('DOMContentLoaded', () => {
+      setupUploadDropzone();
       renderConsumerCatalog('All', '');
       loadPresetCase('diabetes');
+      
+      // Auto-add default approved bundle for initial demo view
+      const defBundle = clinicalCases.diabetes.bundle90;
+      sessionState.cart.push({
+        id: `bundle_diabetes_90d`,
+        name: `Ramesh Chandra (54Y / M) (90-Day Complete Care Plan)`,
+        price: defBundle.price,
+        mrp: defBundle.mrp,
+        profit: defBundle.profit,
+        marginPct: defBundle.marginPct / 100,
+        badge: `Rule 65 Approved Bundle`
+      });
+
       updateCartDrawer();
+      renderPharmacistQueue();
     });
   </script>
 </body>
